@@ -141,38 +141,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('form-submit-btn');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-      // Animate button
-      const originalText = submitBtn.innerHTML;
+  const originalText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = `
+    <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/>
+      </svg>
+      Sending...
+    </span>`;
+
+  const formData = new FormData(contactForm);
+  formData.append("access_key", "2c05fbb3-4529-44b3-a5cf-3a0ad91dbbbd");
+  formData.append("subject", "New Proposal Request – India Palace Catering");
+  formData.append("from_name", "India Palace Website");
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+    const result = await response.json();
+
+    if (result.success) {
       submitBtn.innerHTML = `
         <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="animation: spin 1s linear infinite;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z" opacity="0.3"/><path d="M12 2a10 10 0 019.95 9h-2.02A8 8 0 0012 4V2z"/></svg>
-          Sending...
-        </span>
-      `;
-      submitBtn.disabled = true;
-
-      // Simulate submission
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+          Proposal Request Sent!
+        </span>`;
+      submitBtn.style.background = 'linear-gradient(135deg, #2d7d46, #3a9d5c)';
       setTimeout(() => {
-        submitBtn.innerHTML = `
-          <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-            Proposal Request Sent!
-          </span>
-        `;
-        submitBtn.style.background = 'linear-gradient(135deg, #2d7d46, #3a9d5c)';
-
-        setTimeout(() => {
-          submitBtn.innerHTML = originalText;
-          submitBtn.style.background = '';
-          submitBtn.disabled = false;
-          contactForm.reset();
-        }, 3000);
-      }, 1500);
-    });
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.background = '';
+        submitBtn.disabled = false;
+        contactForm.reset();
+      }, 3000);
+    } else {
+      throw new Error("Submission failed");
+    }
+  } catch (err) {
+    submitBtn.innerHTML = `⚠️ Something went wrong — please call us`;
+    submitBtn.style.background = 'linear-gradient(135deg, #c0392b, #e74c3c)';
+    setTimeout(() => {
+      submitBtn.innerHTML = originalText;
+      submitBtn.style.background = '';
+      submitBtn.disabled = false;
+    }, 4000);
   }
+});
 
   // ─── Video Badge Interaction ───
   const videoBadge = document.getElementById('hero-video-badge');
