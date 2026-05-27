@@ -151,8 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const formData = new FormData(contactForm);
       formData.append("access_key", "2c05fbb3-4529-44b3-a5cf-3a0ad91dbbbd");
-      formData.append("subject", "New Proposal Request – India Palace Catering");
-      formData.append("from_name", "India Palace Website");
+formData.append("subject", "New Proposal Request – India Palace Catering");
+formData.append("from_name", "India Palace and Catering");
+formData.append("replyto", contactForm.querySelector('[name="email"]').value);
+formData.append("autoresponse_subject", "We received your proposal request – India Palace Catering");
+formData.append("autoresponse_message", "Thank you for reaching out to India Palace and Catering! We have received your proposal request and our team will craft a custom response for you within 24 hours.\n\nIn the meantime, feel free to call us directly at (510) 814-8778.\n\nWarm regards,\nKulbir & The India Palace Catering Team");
 
       try {
         const response = await fetch("https://api.web3forms.com/submit", {
