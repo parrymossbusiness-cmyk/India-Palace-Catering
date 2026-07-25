@@ -1,241 +1,114 @@
-/* ============================================
-   INDIA PALACE — Landing Page Interactions
-   ============================================ */
+const downloadForm = document.querySelector("#download-form");
+const proposalForm = document.querySelector("#proposal-form");
+const navToggle = document.querySelector("#nav-toggle");
+const navLinks = document.querySelector("#nav-links");
 
-document.addEventListener('DOMContentLoaded', () => {
+function trackEvent(name, detail = {}) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: name, ...detail });
+}
 
-  // ─── Navbar Scroll Effect ───
-  const navbar = document.getElementById('navbar');
-  let lastScroll = 0;
+function setNavOpen(isOpen) {
+  if (!navToggle || !navLinks) return;
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+  navLinks.setAttribute("data-open", String(isOpen));
+}
 
-  const handleNavScroll = () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll > 80) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+if (navToggle && navLinks) {
+  setNavOpen(false);
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    setNavOpen(!isOpen);
+  });
+
+  navLinks.querySelectorAll("[data-nav-close]").forEach((link) => {
+    link.addEventListener("click", () => setNavOpen(false));
+  });
+
+  document.addEventListener("click", (event) => {
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    if (!isOpen) return;
+    if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) {
+      setNavOpen(false);
     }
-    lastScroll = currentScroll;
-  };
+  });
 
-  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setNavOpen(false);
+  });
+}
 
-  // ─── Mobile Nav Toggle ───
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
+if (downloadForm) {
+  downloadForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navLinks.classList.toggle('active');
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    const email = document.querySelector("#download-email")?.value || "";
+    const status = document.querySelector("#download-status");
+    const button = downloadForm.querySelector("button[type='submit']");
+    const pdfUrl = "downloads/india-palace-corporate-catering-checklist.pdf";
+
+    if (status) status.textContent = "Preparing your checklist...";
+    if (button) button.disabled = true;
+
+    trackEvent("checklist_download", {
+      lead_email_domain: email.includes("@") ? email.split("@").pop() : ""
     });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
+    try {
+      const response = await fetch(downloadForm.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          source: "business_catering_checklist",
+          page: window.location.pathname
+        })
       });
-    });
-  }
 
-  // ─── Scroll Reveal Animations ───
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      if (!response.ok) throw new Error("Lead endpoint unavailable");
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
+      const result = await response.json();
+      window.location.href = result.pdfUrl || pdfUrl;
+    } catch (error) {
+      if (status) {
+        status.textContent = "We could not submit that email. Please try again or email chefkulbir@indiapalacecatering.com.";
       }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  // ─── Animated Counters ───
-  const counterElements = document.querySelectorAll('.stat-number[data-target]');
-  let countersAnimated = false;
-
-  const animateCounter = (element) => {
-    const target = parseInt(element.getAttribute('data-target'), 10);
-    const duration = 2000;
-    const startTime = performance.now();
-
-    const update = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(eased * target);
-
-      element.textContent = current.toLocaleString();
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        element.textContent = target.toLocaleString();
-        if (target === 500) element.textContent = '500+';
-        if (target === 98) element.textContent = '98%';
-        if (target === 45) element.textContent = '45 min';
-        if (target === 30) element.textContent = '30+';
-      }
-    };
-
-    requestAnimationFrame(update);
-  };
-
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !countersAnimated) {
-        countersAnimated = true;
-        counterElements.forEach(el => animateCounter(el));
-        counterObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.3 });
-
-  counterElements.forEach(el => counterObserver.observe(el));
-
-  // ─── Smooth Scroll for Anchor Links ───
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        const navHeight = navbar.offsetHeight;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // ─── Hero Parallax Effect ───
-  const heroBg = document.querySelector('.hero-bg img');
-
-  if (heroBg) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      if (scrolled < window.innerHeight) {
-        heroBg.style.transform = `translateY(${scrolled * 0.3}px) scale(1.1)`;
-      }
-    }, { passive: true });
-  }
-
-  // ─── Form Submission Handler ───
-  const contactForm = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('form-submit-btn');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const originalText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `
-        <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="animation: spin 1s linear infinite;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z" opacity="0.3"/><path d="M12 2a10 10 0 019.95 9h-2.02A8 8 0 0012 4V2z"/></svg>
-          Sending...
-        </span>
-      `;
-
-      const formData = new FormData(contactForm);
-      formData.append("access_key", "2c05fbb3-4529-44b3-a5cf-3a0ad91dbbbd");
-formData.append("subject", "New Proposal Request – India Palace Catering");
-formData.append("from_name", "India Palace and Catering");
-formData.append("replyto", contactForm.querySelector('[name="email"]').value);
-formData.append("autoresponse_subject", "We received your proposal request – India Palace Catering");
-formData.append("autoresponse_message", "Thank you for reaching out to India Palace and Catering! We have received your proposal request and our team will craft a custom response for you within 24 hours.\n\nIn the meantime, feel free to call us directly at (510) 814-8778.\n\nWarm regards,\nKulbir & The India Palace Catering Team");
-
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData
-        });
-        const result = await response.json();
-
-        if (result.success) {
-          submitBtn.innerHTML = `
-            <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-              Proposal Request Sent!
-            </span>
-          `;
-          submitBtn.style.background = 'linear-gradient(135deg, #2d7d46, #3a9d5c)';
-          setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.style.background = '';
-            submitBtn.disabled = false;
-            contactForm.reset();
-          }, 3000);
-        } else {
-          throw new Error("Submission failed");
-        }
-      } catch (err) {
-        submitBtn.innerHTML = `⚠️ Something went wrong — please call us`;
-        submitBtn.style.background = 'linear-gradient(135deg, #c0392b, #e74c3c)';
-        setTimeout(() => {
-          submitBtn.innerHTML = originalText;
-          submitBtn.style.background = '';
-          submitBtn.disabled = false;
-        }, 4000);
-      }
-    });
-  }
-
-  // ─── Video Badge Interaction ───
-  const videoBadge = document.getElementById('hero-video-badge');
-  const videoModal = document.getElementById('videoModal');
-  const closeVideoModal = document.getElementById('closeVideoModal');
-
-  if (videoBadge && videoModal && closeVideoModal) {
-    const videoIframe = videoModal.querySelector('iframe');
-    const videoSrc = videoIframe.src;
-
-    const openModal = () => {
-      if (!videoIframe.src.includes('autoplay')) {
-        videoIframe.src = videoSrc + (videoSrc.includes('?') ? '&' : '?') + 'autoplay=1';
-      }
-      videoModal.classList.add('active');
-    };
-
-    const closeModal = () => {
-      videoModal.classList.remove('active');
-      videoIframe.src = videoSrc;
-    };
-
-    videoBadge.addEventListener('click', () => {
-      videoBadge.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        videoBadge.style.transform = '';
-        openModal();
-      }, 150);
-    });
-
-    closeVideoModal.addEventListener('click', closeModal);
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) closeModal();
-    });
-  }
-
-  // ─── Add spin keyframes for form button ───
-  const styleSheet = document.createElement('style');
-  styleSheet.textContent = `
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    } finally {
+      if (button) button.disabled = false;
     }
-  `;
-  document.head.appendChild(styleSheet);
+  });
+}
 
-});
+if (proposalForm) {
+  proposalForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(proposalForm);
+    const dietary = formData.getAll("dietary").join(", ") || "Not specified";
+    const subject = encodeURIComponent("Office catering proposal request");
+    const body = encodeURIComponent(
+      [
+        "New office catering proposal request",
+        "",
+        `Name: ${formData.get("name") || ""}`,
+        `Work email: ${formData.get("email") || ""}`,
+        `Company: ${formData.get("company") || ""}`,
+        `Phone: ${formData.get("phone") || ""}`,
+        `Estimated headcount: ${formData.get("headcount") || ""}`,
+        `Event type: ${formData.get("event_type") || ""}`,
+        `Dietary needs: ${dietary}`,
+        "",
+        "Details:",
+        formData.get("details") || ""
+      ].join("\n")
+    );
+
+    trackEvent("proposal_request_start", {
+      headcount: formData.get("headcount") || "",
+      event_type: formData.get("event_type") || ""
+    });
+
+    window.location.href = `mailto:chefkulbir@indiapalacecatering.com?subject=${subject}&body=${body}`;
+  });
+}
