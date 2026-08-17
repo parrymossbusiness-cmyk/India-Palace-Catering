@@ -7,7 +7,7 @@
     <meta name="description" content="India Palace Catering helps Bay Area office managers plan reliable Indian catering for team lunches, all-hands, client meetings, and employee events for 30-300 people. On-time delivery, dietary labels, setup, cleanup, and one accountable contact.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://indiapalacecatering.com/">
-    <meta property="og:title" content="Office Catering That Tastes Great And Makes You Look Great Too">
+    <meta property="og:title" content="Bay Area Office Catering That Makes You Look Organized">
     <meta property="og:description" content="Indian catering for Bay Area offices: team lunches, all-hands, client meetings, and employee events for 30-300 people.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://indiapalacecatering.com/">
@@ -52,29 +52,24 @@
               "Mountain View",
               "Sunnyvale"
             ],
-            "priceRange": "$$",
             "servesCuisine": "Indian",
             "foundingDate": "1992",
             "description": "Bay Area Indian catering for office lunches, all-hands meetings, client meetings, employee events, and corporate celebrations.",
             "hasMenu": {
               "@type": "Menu",
-              "name": "Office Catering Menu Paths",
+              "name": "India Palace Catering Menu",
+              "description": "Chef-curated Indian catering menu with vegetarian starters, non-vegetarian starters, vegetarian entrees, non-vegetarian entrees, biryani, rice, breads, desserts, live stations, breakfast items, and customizable catering packages.",
               "hasMenuSection": [
-                {
-                  "@type": "MenuSection",
-                  "name": "Team Lunch",
-                  "description": "Reliable buffet-style lunch for small teams, interviews, trainings, and project milestones. Fits 30 to 60 people."
-                },
-                {
-                  "@type": "MenuSection",
-                  "name": "All-Hands Buffet",
-                  "description": "A fuller spread for moments where attendance and executive visibility are higher. Fits 60 to 120 people."
-                },
-                {
-                  "@type": "MenuSection",
-                  "name": "Culture Lunch",
-                  "description": "A celebratory Indian menu for heritage events, retention moments, and cross-office gatherings. Fits 120 to 300 people."
-                }
+                { "@type": "MenuSection", "name": "Starters: Vegetarian" },
+                { "@type": "MenuSection", "name": "Starters: Non-Vegetarian" },
+                { "@type": "MenuSection", "name": "Entrees: Vegetarian" },
+                { "@type": "MenuSection", "name": "Entrees: Non-Vegetarian" },
+                { "@type": "MenuSection", "name": "Biryani and Rice" },
+                { "@type": "MenuSection", "name": "Breads" },
+                { "@type": "MenuSection", "name": "Desserts" },
+                { "@type": "MenuSection", "name": "Live Stations" },
+                { "@type": "MenuSection", "name": "Breakfast" },
+                { "@type": "MenuSection", "name": "Catering Packages" }
               ]
             }
           },
@@ -146,17 +141,11 @@
             <small>Catering</small>
           </span>
         </a>
-        <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="sr-only">Menu</span>
-        </button>
-        <div class="nav-links" id="nav-links" aria-label="Page sections">
-          <a href="#proposal" data-nav-close>Free Tasting</a>
-          <a href="tel:+13103453033" data-nav-close>Call For Quote</a>
-          <a href="#gallery" data-nav-close>Gallery</a>
-          <a href="#service-area" data-nav-close>Service Area</a>
+        <div class="nav-links" aria-label="Page sections">
+          <a href="#office-catering">Office Catering</a>
+          <a href="#menus">Menus</a>
+          <a href="#checklist">Checklist</a>
+          <a href="#proposal">Proposal</a>
         </div>
         <a class="nav-cta" href="#proposal">Get Proposal</a>
       </nav>
@@ -165,13 +154,17 @@
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-media">
-          <!-- SWAP-IN POINT: replace with new labeled food photography when ready -->
           <img src="assets/office-catering-hero.jpg" alt="Indian office catering buffet with labeled dishes in a modern Bay Area conference room">
         </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
           <p class="eyebrow">Bay Area office catering</p>
-          <h1 id="hero-title">Office catering that tastes great and makes you look great too.</h1>
+          <h1 id="hero-title">Office catering that makes you look great.</h1>
           <p class="hero-copy">Delicious Indian food for team lunches, all-hands meals, client meetings, and employee events delivered on time, clearly labeled, and handled by one accountable point of contact.</p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="#proposal">Request a catering proposal</a>
+            <a class="button button-secondary" href="#checklist">Download the planning checklist</a>
+          </div>
           <dl class="proof-strip" aria-label="Service highlights">
             <div>
               <dt>Since</dt>
@@ -186,11 +179,6 @@
               <dd>Office teams</dd>
             </div>
           </dl>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button button-secondary" href="#proposal">Free Tasting</a>
-            <a class="button button-secondary" href="tel:+13103453033">Call For Quote</a>
-            <a class="button button-primary" href="#proposal">Request a Catering Proposal</a>
-          </div>
         </div>
       </section>
 
@@ -204,23 +192,6 @@
             <li>Milestone celebrations</li>
             <li>Recurring office meals</li>
           </ul>
-        </div>
-      </section>
-
-      <section class="section culture-section" aria-labelledby="culture-title">
-        <div class="section-inner media-split reverse">
-          <figure>
-            <img src="assets/team-lunch.jpg" alt="Office employees serving themselves Indian lunch from a catered buffet in a bright break room">
-            <figcaption>Thoughtful office meals help people feel taken care of.</figcaption>
-          </figure>
-          <div>
-            <p class="eyebrow">For People Ops and office leaders</p>
-            <h2 id="culture-title">Lunch should help the room feel taken care of.</h2>
-            <p class="lead">For an office meal, the food has to satisfy different diets, different spice comfort levels, and different expectations without making the organizer manage every bite.</p>
-            <div class="quote-panel">
-              <blockquote>“The food should be the least stressful part of your day. It should be your favorite.”</blockquote>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -286,61 +257,272 @@
       <section id="menus" class="section menus-section" aria-labelledby="menus-title">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">Menu paths</p>
-            <h2 id="menus-title">Built for Bay Area office lunches and special work events.</h2>
+            <p class="eyebrow">Catering menu</p>
+            <h2 id="menus-title">From traditional classics to modern delights.</h2>
+            <p class="lead">Chef-curated Indian catering for office lunches, celebrations, breakfast service, live stations, and full buffet events. All packages include rice, salad bar, and buffet table setups.</p>
           </div>
-          <div class="menu-grid">
-            <article class="menu-card">
-              <p class="card-kicker">30-60 people</p>
-              <h3>Team Lunch</h3>
-              <p>Reliable buffet-style lunch for small teams, interviews, trainings, and project milestones.</p>
+          <div class="package-grid" aria-label="Catering package options">
+            <article class="package-card">
+              <p class="card-kicker">Gold</p>
+              <h3>Vegetarian Buffet</h3>
               <ul>
-                <li>Two mains plus vegetarian option</li>
-                <li>Rice, naan, salad, chutneys</li>
-                <li>Dietary labels included</li>
+                <li>Appetizers: 5 vegetarian selections</li>
+                <li>Main course: 5 vegetarian selections</li>
+                <li>Dessert: 2 selections</li>
+                <li>Add-ons available</li>
               </ul>
             </article>
-            <article class="menu-card emphasized">
-              <p class="card-kicker">60-120 people</p>
-              <h3>All-Hands Buffet</h3>
-              <p>A fuller spread for moments where attendance and executive visibility are higher.</p>
+            <article class="package-card">
+              <p class="card-kicker">Platinum</p>
+              <h3>Mixed Buffet</h3>
               <ul>
-                <li>Multiple proteins and vegetarian dishes</li>
-                <li>Vegan and gluten-free planning</li>
-                <li>Setup guidance for room flow</li>
+                <li>Appetizers: 2 non-vegetarian and 3 vegetarian selections</li>
+                <li>Main course: 2 non-vegetarian and 3 vegetarian selections</li>
+                <li>Dessert: 2 selections</li>
+                <li>Seafood and premium lamb dishes not included</li>
               </ul>
             </article>
-            <article class="menu-card">
-              <p class="card-kicker">120-300 people</p>
-              <h3>Culture Lunch</h3>
-              <p>A celebratory Indian menu for heritage events, retention moments, and cross-office gatherings.</p>
+            <article class="package-card">
+              <p class="card-kicker">Diamond</p>
+              <h3>Premium Buffet</h3>
               <ul>
-                <li>Biryani, curries, chaat-style options</li>
-                <li>Dessert and beverage add-ons</li>
-                <li>Staffing available by request</li>
+                <li>Appetizers: 2 non-vegetarian and 3 vegetarian selections</li>
+                <li>Main course: 3 non-vegetarian and 3 vegetarian selections</li>
+                <li>Dessert: 3 selections</li>
+                <li>Includes seafood and premium lamb dish options</li>
+              </ul>
+            </article>
+          </div>
+
+          <p class="menu-note">All packages are customizable. Chafers, labor, and transportation are based on the event location. The Diamond package rate may vary based on the number of premium dishes selected.</p>
+
+          <div class="full-menu" aria-label="India Palace catering menu items">
+            <article class="menu-section-card">
+              <h3>Starters: Vegetarian</h3>
+              <ul class="menu-columns">
+                <li>Aloo Tikki, Dahi Vada, Papdi Chaat</li>
+                <li>Tandoori Malai Broccoli</li>
+                <li>Tandoori Pineapple (Vegan)</li>
+                <li>Tandoori Stuffed Mushrooms</li>
+                <li>Paneer Cocktail Samosa</li>
+                <li>Tandoori Kasundi Gobi (Vegan)</li>
+                <li>Jackfruit Tacos / Achari Paneer</li>
+                <li>Pesto Paneer Tikka</li>
+                <li>Mushroom Duplex</li>
+                <li>Veg Shami Kebab</li>
+                <li>Empanada Chaat</li>
+                <li>Chipotle Paneer</li>
+                <li>Paneer Pakora</li>
+                <li>Achari Paneer</li>
+                <li>Dahi Ke Kebab</li>
+                <li>Jhalmuri (Bhel)</li>
+                <li>Raj Kachori</li>
+                <li>Palak Chat</li>
+                <li>Hara Bhara Shami Kebab (Vegan)</li>
+                <li>Chipotle Chili Paneer Tikka</li>
+                <li>Cajun Spiced Paneer Tikka</li>
+                <li>Crispy Tamarind Cauliflower</li>
+                <li>Mushroom and Beetroot Tikki</li>
+                <li>Cream Cheese and Jalapeno Balls</li>
+                <li>Veggie Pakora</li>
+                <li>Veggie Manchurian</li>
+                <li>Gobi Manchurian</li>
+                <li>Veggie Spring Roll</li>
+                <li>Chili Paneer</li>
+                <li>Gobi 65</li>
+                <li>Gol Gappa Shots (Mint, Guava, Pomegranate, Pineapple, Hing, Zeera) (Vegan)</li>
+              </ul>
+            </article>
+
+            <article class="menu-section-card">
+              <h3>Starters: Non-Vegetarian</h3>
+              <h4>Meat Starters</h4>
+              <ul class="menu-columns">
+                <li>Butter Chicken Birra Style Tacos</li>
+                <li>Achari Chicken Tikka</li>
+                <li>Truffle Chicken Tikka</li>
+                <li>Chicken Gilafi Seekh</li>
+                <li>Pesto Chicken Tikka</li>
+                <li>Chicken Malai Tikka</li>
+                <li>Chipotle Chicken</li>
+                <li>Methi Murg Tikka</li>
+                <li>Tandoori Chicken</li>
+                <li>Lemon Chicken</li>
+                <li>Chicken Pakora</li>
+                <li>Chicken 65</li>
+                <li>Lamb Seekh Kebab</li>
+                <li>Lamb Gilafi Kebab</li>
+                <li>Lamb Shami Kebab</li>
+                <li>Tandoori Lamb Chops (Premium Dish)</li>
+              </ul>
+              <h4>Fish and Seafood Starters</h4>
+              <ul class="menu-columns compact">
+                <li>Mustard Tandoori Shrimp</li>
+                <li>Amritsari Fish Finger</li>
+                <li>Tandoori Salmon</li>
+                <li>Tandoori Prawns</li>
+                <li>Amritsari Fish Pakora</li>
+                <li>Ajwaini Fish Tikka</li>
+                <li>Achari Fish Tikka</li>
+              </ul>
+            </article>
+
+            <article class="menu-section-card">
+              <h3>Entrees: Vegetarian</h3>
+              <ul class="menu-columns">
+                <li>Sun-dried Tomatoes</li>
+                <li>Mozzarella Kofta</li>
+                <li>Malai Kofta</li>
+                <li>Fig Kofta</li>
+                <li>Eggplant Missalum</li>
+                <li>Amritsar Chole and Kulcha</li>
+                <li>Aloo Gobi Masala</li>
+                <li>Daal Makhani</li>
+                <li>Dum Aloo</li>
+                <li>Karahi Paneer</li>
+                <li>Paneer Makhani</li>
+                <li>Kadai Paneer</li>
+                <li>Palak Paneer</li>
+                <li>Paneer Lababdar</li>
+                <li>Paneer Khurchan</li>
+                <li>Kadi Pakora</li>
+                <li>Matar Paneer</li>
+                <li>Paneer Bhurji</li>
+                <li>Methi Malai Matar</li>
+                <li>Daal Tadka</li>
+                <li>Pindi Chole</li>
+                <li>Rajma Curry</li>
+              </ul>
+            </article>
+
+            <article class="menu-section-card">
+              <h3>Entrees: Non-Vegetarian</h3>
+              <ul class="menu-columns">
+                <li>Coconut Chicken Curry</li>
+                <li>Chicken Curry</li>
+                <li>Butter Chicken</li>
+                <li>Chicken Tikka Masala</li>
+                <li>Chicken Do Piaza</li>
+                <li>Karhari Chicken</li>
+                <li>Methi Chicken Malai</li>
+                <li>Lababdar Chicken</li>
+                <li>Chicken Palak</li>
+                <li>Chicken Chettinad</li>
+                <li>Chicken Malabar</li>
+                <li>Goan Chicken Curry</li>
+                <li>Keema Matter (Minced Lamb)</li>
+                <li>Laal Maas (Lamb or Goat)</li>
+                <li>Rogan Josh (Lamb or Goat)</li>
+                <li>Bhuna Gosht</li>
+                <li>Lamb Palak</li>
+                <li>Punjabi Mutton Masala</li>
+                <li>Mutton Rara Masala</li>
+              </ul>
+            </article>
+
+            <article class="menu-section-card">
+              <h3>Biryani and Rice</h3>
+              <ul class="menu-columns compact">
+                <li>Jeera Rice</li>
+                <li>Plain Rice</li>
+                <li>Steamed Basmati Rice</li>
+                <li>Veg Pulao</li>
+                <li>Peas Pulao</li>
+                <li>Vegetable Biryani</li>
+                <li>Jackfruit Biryani</li>
+                <li>Hyderabadi Chicken</li>
+                <li>Dum Biryani</li>
+                <li>Hyderabadi Goat Dum Biryani</li>
+                <li>Murgh Tikka Biryani</li>
+                <li>Goat Yakhni Biryani</li>
+                <li>Awadhi Murgh Biryani</li>
+              </ul>
+            </article>
+
+            <article class="menu-section-card">
+              <h3>Breads</h3>
+              <ul class="menu-columns compact">
+                <li>Naan: Butter, Garlic, and Plain</li>
+                <li>Tandoor Roti</li>
+                <li>Missi Roti</li>
+                <li>Lacha Paratha</li>
+                <li>Pudina Paratha</li>
+                <li>Chilli Paratha</li>
+                <li>Aloo Kulcha</li>
+                <li>Paneer Kulcha</li>
+              </ul>
+            </article>
+
+            <article class="menu-section-card">
+              <h3>Desserts</h3>
+              <ul class="menu-columns compact">
+                <li>Rasmalai Chocolate Mousse</li>
+                <li>Kesar Rasmalai</li>
+                <li>Chocolate Rasmalai</li>
+                <li>Mango Rasmalai</li>
+                <li>Rasmalai</li>
+                <li>Rasgulla Tiramisu</li>
+                <li>Kheer</li>
+                <li>Moong Daal Halwa</li>
+                <li>Garjar Ka Halwa</li>
+                <li>Mango Pannacotta</li>
+                <li>Kulfi Falooda</li>
+                <li>Gulab Jamun</li>
+                <li>Fig Kulfi</li>
+              </ul>
+            </article>
+
+            <article class="menu-section-card">
+              <h3>Live Stations</h3>
+              <p class="menu-section-note">Live stations are add-ons to the selected package.</p>
+              <ul class="menu-columns compact">
+                <li>Tawa Mix Seasonal Vegetables (Vegan)</li>
+                <li>Chaat (Aloo Tikki and Samosa) (Vegan)</li>
+                <li>Dosa Station (Vegan)</li>
+                <li>Tacos (Jackfruit and Chicken Tikka, Chicken Birra)</li>
+                <li>Pasta Station</li>
+                <li>Jalebi Rabri</li>
+              </ul>
+            </article>
+
+            <article class="menu-section-card">
+              <h3>Breakfast</h3>
+              <ul class="menu-columns compact">
+                <li>Cucumber Sandwich (Vegan)</li>
+                <li>Tomato Sandwich (Plain) (Vegan)</li>
+                <li>Lassi (Salted, Sweet, and Masala)</li>
+                <li>Scrambled Egg and Boiled Egg Plain</li>
+                <li>Cheese Sandwich</li>
+                <li>Mumbai Style Poha</li>
+                <li>Assorted Pakora</li>
+                <li>Chole Bhature</li>
+                <li>Masala Chai</li>
+                <li>Aloo Paratha (Vegan)</li>
+                <li>Gobi Paratha (Vegan)</li>
+                <li>Idli Sambar</li>
+                <li>Chole Puri</li>
+                <li>Aloo Puri (Vegan)</li>
+                <li>Pav Bhaji</li>
+                <li>Vada Pav</li>
               </ul>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="gallery" class="section gallery-section" aria-labelledby="gallery-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="eyebrow">Food gallery</p>
-            <h2 id="gallery-title">What lands on the buffet table.</h2>
-          </div>
-          <!-- SWAP-IN POINT: replace/add <figure> tiles below as new photography arrives -->
-          <div class="gallery-grid">
-            <figure class="gallery-item gallery-item-wide">
-              <img src="assets/office-catering-hero.jpg" alt="Indian office catering buffet with labeled dishes in a modern Bay Area conference room" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/dietary-labels.jpg" alt="Close-up of labeled Indian catering dishes showing dietary cards for office guests" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/team-lunch.jpg" alt="Office employees serving themselves Indian lunch from a catered buffet in a bright break room" loading="lazy">
-            </figure>
+      <section class="section culture-section" aria-labelledby="culture-title">
+        <div class="section-inner media-split reverse">
+          <figure>
+            <img src="assets/team-lunch.jpg" alt="Office employees serving themselves Indian lunch from a catered buffet in a bright break room">
+            <figcaption>Thoughtful office meals help people feel taken care of.</figcaption>
+          </figure>
+          <div>
+            <p class="eyebrow">For People Ops and office leaders</p>
+            <h2 id="culture-title">Lunch should help the room feel taken care of.</h2>
+            <p class="lead">For an office meal, the food has to satisfy different diets, different spice comfort levels, and different expectations without making the organizer manage every bite.</p>
+            <div class="quote-panel">
+              <blockquote>“The food should be the least stressful part of your day. It should be your favorite.”</blockquote>
+            </div>
           </div>
         </div>
       </section>
@@ -364,27 +546,6 @@
           <a class="checklist-preview" href="downloads/india-palace-corporate-catering-checklist.pdf" aria-label="Open corporate catering checklist PDF">
             <img src="assets/checklist-cover.png" alt="Cover page for the India Palace Corporate Catering Checklist">
           </a>
-        </div>
-      </section>
-
-      <section id="service-area" class="section service-area-section" aria-labelledby="service-area-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="eyebrow">Delivery footprint</p>
-            <h2 id="service-area-title">Serving Bay Area offices from Alameda.</h2>
-            <p class="lead">If your office sits in or near one of these cities, we can typically deliver. Not seeing yours? Ask anyway &mdash; we cover additional locations by request.</p>
-          </div>
-          <ul class="service-area-list" aria-label="Cities served">
-            <li>San Francisco</li>
-            <li>Oakland</li>
-            <li>Alameda</li>
-            <li>Berkeley</li>
-            <li>San Jose</li>
-            <li>Palo Alto</li>
-            <li>Mountain View</li>
-            <li>Sunnyvale</li>
-            <li>Silicon Valley</li>
-          </ul>
         </div>
       </section>
 
@@ -450,7 +611,7 @@
         </div>
       </section>
 
-      <section id="faq" class="section faq-section" aria-labelledby="faq-title">
+      <section class="section faq-section" aria-labelledby="faq-title">
         <div class="section-inner">
           <div class="section-heading">
             <p class="eyebrow">Buyer questions</p>
@@ -497,10 +658,8 @@
         </address>
         <div class="footer-links">
           <a href="#proposal">Request proposal</a>
+          <a href="#menus">Menus</a>
           <a href="downloads/india-palace-corporate-catering-checklist.pdf">Download checklist</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#service-area">Service area</a>
-          <a href="blog/">Blog</a>
           <a href="#faq">FAQ</a>
         </div>
       </div>
