@@ -15,7 +15,7 @@
             --gold-primary: #d4af37;
             --gold-bright: #e5c158;
             --gold-light: #f5e7b8;
-            --gold-border: rgba(212, 175, 55, 0.22);
+            --gold-border: rgba(212, 175, 55, 0.35);
             --gold-glow: rgba(212, 175, 55, 0.15);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
@@ -266,7 +266,7 @@
             line-height: 1.7;
         }
 
-        /* Packages Grid */
+        /* Packages Grid - All with Uniform Gold Borders */
         .packages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -276,16 +276,12 @@
 
         .package-card {
             background: linear-gradient(180deg, #161b24 0%, #11141c 100%);
-            border: 1px solid var(--gold-border);
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 25px var(--gold-glow);
             border-radius: 8px;
             padding: 36px 28px;
             text-align: center;
             position: relative;
-        }
-
-        .package-card.highlight {
-            border: 2px solid var(--gold-primary);
-            box-shadow: 0 0 30px var(--gold-glow);
         }
 
         .package-title {
@@ -325,13 +321,14 @@
 
         .inclusions-box {
             background: var(--bg-card);
-            border: 1px dashed var(--gold-border);
+            border: 1px solid var(--gold-border);
             border-radius: 6px;
-            padding: 22px;
+            padding: 24px;
             text-align: center;
             margin-top: 30px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            color: var(--text-sub);
+            font-size: 0.92rem;
+            line-height: 1.8;
         }
 
         /* Closing CTA Section */
@@ -622,12 +619,12 @@
             </div>
         </section>
 
-        <!-- Packages (No Prices) -->
+        <!-- Packages -->
         <section id="packages" class="menu-section">
             <h2 class="section-title">Curated Catering Packages</h2>
             <div class="packages-grid">
                 
-                <div class="package-card highlight">
+                <div class="package-card">
                     <h3 class="package-title">Diamond Package</h3>
                     <ul class="package-features">
                         <li><strong>Appetizers:</strong> 2 Non-Veg, 3 Veg</li>
@@ -655,7 +652,7 @@
                         <li><strong>Appetizers:</strong> 5 Vegetarian</li>
                         <li><strong>Main Course:</strong> 5 Vegetarian</li>
                         <li><strong>Desserts:</strong> 2 Selections</li>
-                        <li><strong>Inclusions:</strong> Full Vegetarian Feast</li>
+                        <li><strong>Inclusions:</strong> Add On Available</li>
                     </ul>
                     <p class="package-note">A pure-vegetarian spread honoring authentic regional specialties.</p>
                 </div>
@@ -663,7 +660,9 @@
             </div>
 
             <div class="inclusions-box">
-                All packages include: Rice, Fresh Salad Bar, and Full Buffet Table Setup. Every package is fully customizable to suit your event's exact vision.
+                All packages include: Rice, Fresh Salad Bar, and Full Buffet Table Setup[cite: 1]. All packages are customizable and we are happy to discuss if you have any special requests[cite: 1].<br>
+                Chafers will be an additional $299[cite: 1]. Labor and transportation costs will be based on the event location[cite: 1].<br>
+                The Diamond package rate may vary based on the number of premium dishes you choose to include[cite: 1].
             </div>
         </section>
 
