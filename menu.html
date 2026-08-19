@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering Menu | India Palace Catering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0c0d10;
+            --bg-card: #14171d;
+            --bg-card-hover: #1b1f27;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-border: rgba(212, 175, 55, 0.25);
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-main: #f0f0f0;
+            --text-muted: #a3a8b5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header-nav {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gold-border);
+            background: rgba(12, 13, 16, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold-primary);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px 40px;
+            position: sticky;
+            top: 72px;
+            background: var(--bg-deep);
+            z-index: 90;
+        }
+
+        .category-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--gold-border);
+            background: var(--bg-card);
+            transition: all 0.2s ease;
+        }
+
+        .category-nav a:hover {
+            color: #0c0d10;
+            background: var(--gold-primary);
+            border-color: var(--gold-primary);
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .menu-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 150px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--gold-light);
+            border-bottom: 1px solid var(--gold-border);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title span {
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--gold-primary);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .item-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--gold-primary);
+            padding: 16px 20px;
+            border-radius: 4px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-2px);
+            background: var(--bg-card-hover);
+            border-color: var(--gold-border);
+            box-shadow: 0 8px 24px var(--gold-glow);
+        }
+
+        .item-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .tag-vegan {
+            background: rgba(46, 125, 50, 0.2);
+            color: #81c784;
+            border: 1px solid rgba(129, 199, 132, 0.4);
+        }
+
+        .tag-premium {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold-light);
+            border: 1px solid var(--gold-border);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .package-card {
+            background: linear-gradient(180deg, #181c24 0%, #12141a 100%);
+            border: 1px solid var(--gold-border);
+            border-radius: 8px;
+            padding: 36px 28px;
+            text-align: center;
+            position: relative;
+        }
+
+        .package-card.highlight {
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 30px var(--gold-glow);
+        }
+
+        .package-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 20px;
+        }
+
+        .package-features li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .package-features li strong {
+            color: var(--text-main);
+        }
+
+        .package-note {
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .inclusions-box {
+            background: var(--bg-card);
+            border: 1px dashed var(--gold-border);
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid var(--gold-border);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #d4af37, #aa7c11);
+            color: #0c0d10;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 14px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .header-nav { padding: 15px 20px; }
+            .category-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-nav">
+        <a href="/" class="back-link">&larr; Back to Home</a>
+        <a href="/#contact" class="cta-btn" style="padding: 8px 18px; font-size: 0.85rem;">Request Quote</a>
+    </header>
+
+    <div class="hero">
+        <h1>Catering Menu</h1>
+        <p>From traditional royal classics to modern culinary innovations, carefully curated for weddings, corporate galas, and celebratory milestones[cite: 1].</p>
+    </div>
+
+    <nav class="category-nav">
+        <a href="#veg-starters">Veg Starters</a>
+        <a href="#nonveg-starters">Non-Veg Starters</a>
+        <a href="#veg-entrees">Veg Entrees</a>
+        <a href="#nonveg-entrees">Non-Veg Entrees</a>
+        <a href="#biryani-breads">Biryani & Breads</a>
+        <a href="#desserts-stations">Desserts & Stations</a>
+        <a href="#breakfast">Breakfast</a>
+        <a href="#packages">Packages</a>
+    </nav>
+
+    <main class="menu-container">
+
+        <!-- Page 3: Starters: Vegetarian -->
+        <section id="veg-starters" class="menu-section">
+            <h2 class="section-title">Starters <span>Vegetarian</span></h2>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-title">Aloo Tikki, Dahi Vada, Papdi Chaat</div></div>
+                <div class="item-card"><div class="item-title">Tandoori Malai Broccoli</div></div>
+                <div class="item-card"><div class="item-title">Tandoori Pineapple <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Tandoori Stuffed Mushrooms</div></div>
+                <div class="item-card"><div class="item-title">Paneer Cocktail Samosa</div></div>
+                <div class="item-card"><div class="item-title">Tandoori Kasundi Gobi <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Jackfruit Tacos / Achari Paneer</div></div>
+                <div class="item-card"><div class="item-title">Pesto Paneer Tikka</div></div>
+                <div class="item-card"><div class="item-title">Mushroom Duplex</div></div>
+                <div class="item-card"><div class="item-title">Veg Shami Kebab</div></div>
+                <div class="item-card"><div class="item-title">Empanada Chaat</div></div>
+                <div class="item-card"><div class="item-title">Chipotle Paneer</div></div>
+                <div class="item-card"><div class="item-title">Paneer Pakora</div></div>
+                <div class="item-card"><div class="item-title">Achari Paneer</div></div>
+                <div class="item-card"><div class="item-title">Dahi Ke Kebab</div></div>
+                <div class="item-card"><div class="item-title">Gol Gappa Shots (Mint, Guava, Pomegranate, Pineapple, Hing, Zeera) <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Jhalmuri (Bhel)</div></div>
+                <div class="item-card"><div class="item-title">Raj Kachori</div></div>
+                <div class="item-card"><div class="item-title">Palak Chaat</div></div>
+                <div class="item-card"><div class="item-title">Hara Bhara Shami Kebab <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Chipotle Chili Paneer Tikka</div></div>
+                <div class="item-card"><div class="item-title">Cajun Spiced Paneer Tikka</div></div>
+                <div class="item-card"><div class="item-title">Crispy Tamarind Cauliflower</div></div>
+                <div class="item-card"><div class="item-title">Mushroom & Beetroot Tikki</div></div>
+                <div class="item-card"><div class="item-title">Cream Cheese & Jalapeno Balls</div></div>
+                <div class="item-card"><div class="item-title">Veggie Pakora</div></div>
+                <div class="item-card"><div class="item-title">Veggie Manchurian</div></div>
+                <div class="item-card"><div class="item-title">Gobi Manchurian</div></div>
+                <div class="item-card"><div class="item-title">Veggie Spring Roll</div></div>
+                <div class="item-card"><div class="item-title">Chili Paneer</div></div>
+                <div class="item-card"><div class="item-title">Gobi 65</div></div>
+            </div>
+        </section>
+
+        <!-- Page 4: Starters: Non-Vegetarian -->
+        <section id="nonveg-starters" class="menu-section">
+            <h2 class="section-title">Starters <span>Non-Vegetarian & Seafood</span></h2>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-title">Butter Chicken Birria Style Tacos</div></div>
+                <div class="item-card"><div class="item-title">Achari Chicken Tikka</div></div>
+                <div class="item-card"><div class="item-title">Truffle Chicken Tikka</div></div>
+                <div class="item-card"><div class="item-title">Chicken Gilafi Seekh</div></div>
+                <div class="item-card"><div class="item-title">Pesto Chicken Tikka</div></div>
+                <div class="item-card"><div class="item-title">Chicken Malai Tikka</div></div>
+                <div class="item-card"><div class="item-title">Chipotle Chicken</div></div>
+                <div class="item-card"><div class="item-title">Methi Murg Tikka</div></div>
+                <div class="item-card"><div class="item-title">Mustard Tandoori Shrimp</div></div>
+                <div class="item-card"><div class="item-title">Amritsari Fish Finger</div></div>
+                <div class="item-card"><div class="item-title">Tandoori Salmon</div></div>
+                <div class="item-card"><div class="item-title">Tandoori Prawns</div></div>
+                <div class="item-card"><div class="item-title">Tandoori Chicken</div></div>
+                <div class="item-card"><div class="item-title">Lemon Chicken</div></div>
+                <div class="item-card"><div class="item-title">Chicken Pakora</div></div>
+                <div class="item-card"><div class="item-title">Chicken 65</div></div>
+                <div class="item-card"><div class="item-title">Lamb Seekh Kebab</div></div>
+                <div class="item-card"><div class="item-title">Lamb Gilafi Kebab</div></div>
+                <div class="item-card"><div class="item-title">Lamb Shami Kebab</div></div>
+                <div class="item-card"><div class="item-title">Tandoori Lamb Chops <span class="tag tag-premium">Premium</span></div></div>
+                <div class="item-card"><div class="item-title">Amritsari Fish Pakora</div></div>
+                <div class="item-card"><div class="item-title">Ajwaini Fish Tikka</div></div>
+                <div class="item-card"><div class="item-title">Achari Fish Tikka</div></div>
+            </div>
+        </section>
+
+        <!-- Page 5: Entrees: Vegetarian -->
+        <section id="veg-entrees" class="menu-section">
+            <h2 class="section-title">Entrees <span>Vegetarian</span></h2>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-title">Sun-dried Tomatoes Mozzarella Kofta</div></div>
+                <div class="item-card"><div class="item-title">Malai Kofta</div></div>
+                <div class="item-card"><div class="item-title">Fig Kofta</div></div>
+                <div class="item-card"><div class="item-title">Eggplant Missalum</div></div>
+                <div class="item-card"><div class="item-title">Amritsari Chole & Kulcha</div></div>
+                <div class="item-card"><div class="item-title">Aloo Gobi Masala</div></div>
+                <div class="item-card"><div class="item-title">Daal Makhani</div></div>
+                <div class="item-card"><div class="item-title">Dum Aloo</div></div>
+                <div class="item-card"><div class="item-title">Karahi Paneer</div></div>
+                <div class="item-card"><div class="item-title">Paneer Makhani</div></div>
+                <div class="item-card"><div class="item-title">Kadai Paneer</div></div>
+                <div class="item-card"><div class="item-title">Palak Paneer</div></div>
+                <div class="item-card"><div class="item-title">Paneer Lababdar</div></div>
+                <div class="item-card"><div class="item-title">Paneer Khurchan</div></div>
+                <div class="item-card"><div class="item-title">Kadi Pakora</div></div>
+                <div class="item-card"><div class="item-title">Matar Paneer</div></div>
+                <div class="item-card"><div class="item-title">Paneer Bhurji</div></div>
+                <div class="item-card"><div class="item-title">Methi Malai Matar</div></div>
+                <div class="item-card"><div class="item-title">Daal Tadka</div></div>
+                <div class="item-card"><div class="item-title">Pindi Chole</div></div>
+                <div class="item-card"><div class="item-title">Rajma Curry</div></div>
+            </div>
+        </section>
+
+        <!-- Page 6: Entrees: Non-Vegetarian -->
+        <section id="nonveg-entrees" class="menu-section">
+            <h2 class="section-title">Entrees <span>Non-Vegetarian & Meat</span></h2>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-title">Coconut Chicken Curry</div></div>
+                <div class="item-card"><div class="item-title">Chicken Curry</div></div>
+                <div class="item-card"><div class="item-title">Butter Chicken</div></div>
+                <div class="item-card"><div class="item-title">Chicken Tikka Masala</div></div>
+                <div class="item-card"><div class="item-title">Chicken Do Piaza</div></div>
+                <div class="item-card"><div class="item-title">Karahi Chicken</div></div>
+                <div class="item-card"><div class="item-title">Methi Chicken Malai</div></div>
+                <div class="item-card"><div class="item-title">Lababdar Chicken</div></div>
+                <div class="item-card"><div class="item-title">Chicken Palak</div></div>
+                <div class="item-card"><div class="item-title">Chicken Chettinad</div></div>
+                <div class="item-card"><div class="item-title">Chicken Malabar</div></div>
+                <div class="item-card"><div class="item-title">Goan Chicken Curry</div></div>
+                <div class="item-card"><div class="item-title">Keema Matar (Minced Lamb)</div></div>
+                <div class="item-card"><div class="item-title">Laal Maas (Lamb or Goat)</div></div>
+                <div class="item-card"><div class="item-title">Rogan Josh (Lamb or Goat)</div></div>
+                <div class="item-card"><div class="item-title">Bhuna Gosht</div></div>
+                <div class="item-card"><div class="item-title">Lamb Palak</div></div>
+                <div class="item-card"><div class="item-title">Punjabi Mutton Masala</div></div>
+                <div class="item-card"><div class="item-title">Mutton Rara Masala</div></div>
+            </div>
+        </section>
+
+        <!-- Page 7: Biryani, Rice & Breads -->
+        <section id="biryani-breads" class="menu-section">
+            <h2 class="section-title">Biryani, Rice & Breads</h2>
+            <div style="margin-bottom: 24px;">
+                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; font-weight: 500;">Rice & Biryani Specialties</h3>
+                <div class="items-grid">
+                    <div class="item-card"><div class="item-title">Jeera Rice</div></div>
+                    <div class="item-card"><div class="item-title">Plain Steamed Basmati Rice</div></div>
+                    <div class="item-card"><div class="item-title">Veg Pulao</div></div>
+                    <div class="item-card"><div class="item-title">Peas Pulao</div></div>
+                    <div class="item-card"><div class="item-title">Vegetable Biryani</div></div>
+                    <div class="item-card"><div class="item-title">Jackfruit Biryani</div></div>
+                    <div class="item-card"><div class="item-title">Hyderabadi Chicken Dum Biryani</div></div>
+                    <div class="item-card"><div class="item-title">Hyderabadi Goat Dum Biryani</div></div>
+                    <div class="item-card"><div class="item-title">Murgh Tikka Biryani</div></div>
+                    <div class="item-card"><div class="item-title">Goat Yakhni Biryani</div></div>
+                    <div class="item-card"><div class="item-title">Awadhi Murgh Biryani</div></div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; font-weight: 500;">Fresh Clay Oven Breads</h3>
+                <div class="items-grid">
+                    <div class="item-card"><div class="item-title">Naan (Butter, Garlic, Plain)</div></div>
+                    <div class="item-card"><div class="item-title">Tandoori Roti</div></div>
+                    <div class="item-card"><div class="item-title">Missi Roti</div></div>
+                    <div class="item-card"><div class="item-title">Lacha Paratha</div></div>
+                    <div class="item-card"><div class="item-title">Pudina Paratha</div></div>
+                    <div class="item-card"><div class="item-title">Chilli Paratha</div></div>
+                    <div class="item-card"><div class="item-title">Aloo Kulcha</div></div>
+                    <div class="item-card"><div class="item-title">Paneer Kulcha</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 8: Desserts & Live Stations -->
+        <section id="desserts-stations" class="menu-section">
+            <h2 class="section-title">Desserts & Live Stations</h2>
+            <div style="margin-bottom: 24px;">
+                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; font-weight: 500;">Desserts</h3>
+                <div class="items-grid">
+                    <div class="item-card"><div class="item-title">Rasmalai Chocolate Mousse</div></div>
+                    <div class="item-card"><div class="item-title">Kesar Rasmalai</div></div>
+                    <div class="item-card"><div class="item-title">Chocolate Rasmalai</div></div>
+                    <div class="item-card"><div class="item-title">Mango Rasmalai</div></div>
+                    <div class="item-card"><div class="item-title">Traditional Rasmalai</div></div>
+                    <div class="item-card"><div class="item-title">Rasgulla Tiramisu</div></div>
+                    <div class="item-card"><div class="item-title">Kheer</div></div>
+                    <div class="item-card"><div class="item-title">Moong Daal Halwa</div></div>
+                    <div class="item-card"><div class="item-title">Gajar Ka Halwa</div></div>
+                    <div class="item-card"><div class="item-title">Mango Panna Cotta</div></div>
+                    <div class="item-card"><div class="item-title">Kulfi Falooda</div></div>
+                    <div class="item-card"><div class="item-title">Gulab Jamun</div></div>
+                    <div class="item-card"><div class="item-title">Fig Kulfi</div></div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; font-weight: 500;">Interactive Live Stations</h3>
+                <div class="items-grid">
+                    <div class="item-card"><div class="item-title">Tawa Mix Seasonal Vegetables <span class="tag tag-vegan">Vegan</span></div></div>
+                    <div class="item-card"><div class="item-title">Chaat Station (Aloo Tikki & Samosa) <span class="tag tag-vegan">Vegan</span></div></div>
+                    <div class="item-card"><div class="item-title">Dosa Station <span class="tag tag-vegan">Vegan</span></div></div>
+                    <div class="item-card"><div class="item-title">Taco Station (Jackfruit, Chicken Tikka, Chicken Birria)</div></div>
+                    <div class="item-card"><div class="item-title">Pasta Station</div></div>
+                    <div class="item-card"><div class="item-title">Live Jalebi & Rabri</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 9: Breakfast -->
+        <section id="breakfast" class="menu-section">
+            <h2 class="section-title">Breakfast Selections</h2>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-title">Cucumber Sandwich <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Tomato Sandwich <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Lassi (Salted, Sweet, Masala)</div></div>
+                <div class="item-card"><div class="item-title">Scrambled & Boiled Eggs</div></div>
+                <div class="item-card"><div class="item-title">Cheese Sandwich</div></div>
+                <div class="item-card"><div class="item-title">Mumbai Style Poha</div></div>
+                <div class="item-card"><div class="item-title">Assorted Pakora</div></div>
+                <div class="item-card"><div class="item-title">Chole Bhature</div></div>
+                <div class="item-card"><div class="item-title">Masala Chai</div></div>
+                <div class="item-card"><div class="item-title">Aloo Paratha <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Gobi Paratha <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Idli Sambar</div></div>
+                <div class="item-card"><div class="item-title">Chole Puri</div></div>
+                <div class="item-card"><div class="item-title">Aloo Puri <span class="tag tag-vegan">Vegan</span></div></div>
+                <div class="item-card"><div class="item-title">Pav Bhaji</div></div>
+                <div class="item-card"><div class="item-title">Vada Pav</div></div>
+            </div>
+        </section>
+
+        <!-- Page 10: Packages (No Prices) -->
+        <section id="packages" class="menu-section">
+            <h2 class="section-title">Curated Catering Packages</h2>
+            <div class="packages-grid">
+                
+                <div class="package-card highlight">
+                    <h3 class="package-title">Diamond Package</h3>
+                    <ul class="package-features">
+                        <li><strong>Appetizers:</strong> 2 Non-Veg, 3 Veg</li>
+                        <li><strong>Main Course:</strong> 3 Non-Veg, 3 Veg</li>
+                        <li><strong>Desserts:</strong> 3 Selections</li>
+                        <li><strong>Inclusions:</strong> Seafood & Premium Lamb dishes included</li>
+                    </ul>
+                    <p class="package-note">Designed for grand celebrations seeking the highest culinary diversity[cite: 1].</p>
+                </div>
+
+                <div class="package-card">
+                    <h3 class="package-title">Platinum Package</h3>
+                    <ul class="package-features">
+                        <li><strong>Appetizers:</strong> 2 Non-Veg, 3 Veg</li>
+                        <li><strong>Main Course:</strong> 2 Non-Veg, 3 Veg</li>
+                        <li><strong>Desserts:</strong> 2 Selections</li>
+                        <li><strong>Inclusions:</strong> Excludes premium lamb and seafood</li>
+                    </ul>
+                    <p class="package-note">Our signature balanced offering for weddings and festive banquets[cite: 1].</p>
+                </div>
+
+                <div class="package-card">
+                    <h3 class="package-title">Gold Package</h3>
+                    <ul class="package-features">
+                        <li><strong>Appetizers:</strong> 5 Vegetarian</li>
+                        <li><strong>Main Course:</strong> 5 Vegetarian</li>
+                        <li><strong>Desserts:</strong> 2 Selections</li>
+                        <li><strong>Inclusions:</strong> Full Vegetarian Feast</li>
+                    </ul>
+                    <p class="package-note">A pure-vegetarian spread honoring authentic regional specialties[cite: 1].</p>
+                </div>
+
+            </div>
+
+            <div class="inclusions-box">
+                All packages include: Rice, Fresh Salad Bar, and Full Buffet Table Setup[cite: 1]. Every package is fully customizable to suit your event's exact vision[cite: 1].
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold-primary); margin-bottom: 12px;">Ready to Plan Your Event?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Contact our culinary team to tailor your package and reserve your date[cite: 1].</p>
+            <a href="/#contact" class="cta-btn">Inquire Now</a>
+        </section>
+
+    </main>
+
+</body>
+</html>
