@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India Palace and Catering | Executive & Event Catering Bay Area</title>
+    <title>India Palace and Catering | Executive & Corporate Catering Bay Area</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #08090b;
-            --bg-dark: #0f1115;
-            --bg-card: #15181e;
+            --bg-base: #0a0c10;
+            --bg-surface: #12161f;
+            --bg-card: #181d28;
+            --bg-input: #11141c;
             --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --gold-accent: #b8912e;
-            --gold-border: rgba(212, 175, 55, 0.25);
-            --gold-glow: rgba(212, 175, 55, 0.15);
-            --text-main: #f0f0f0;
-            --text-muted: #a3a8b5;
+            --gold-bright: #e5c158;
+            --gold-light: #f5e7b8;
+            --gold-accent: #b58d24;
+            --gold-border: rgba(212, 175, 55, 0.22);
+            --gold-glow: rgba(212, 175, 55, 0.12);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-sub: #d1d5db;
         }
 
         * {
@@ -32,7 +35,7 @@
         }
 
         body {
-            background-color: var(--bg-deep);
+            background-color: var(--bg-base);
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
@@ -40,18 +43,18 @@
             overflow-x: hidden;
         }
 
-        /* Top Navigation */
+        /* Sticky Navigation */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 20px 48px;
+            padding: 18px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(8, 9, 11, 0.85);
+            background: rgba(10, 12, 16, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--gold-border);
         }
@@ -64,7 +67,7 @@
 
         .brand-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.55rem;
+            font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: 2px;
             color: var(--gold-light);
@@ -87,10 +90,10 @@
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--text-sub);
             text-decoration: none;
             font-size: 0.85rem;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             font-weight: 500;
             transition: color 0.2s ease;
         }
@@ -103,7 +106,7 @@
             color: var(--gold-primary) !important;
             border: 1px solid var(--gold-border);
             padding: 7px 16px;
-            border-radius: 3px;
+            border-radius: 2px;
             transition: all 0.2s ease;
         }
 
@@ -112,10 +115,10 @@
             border-color: var(--gold-primary);
         }
 
-        .btn-proposal {
+        .btn-proposal-nav {
             border: 1px solid var(--gold-primary);
             color: var(--gold-light) !important;
-            padding: 9px 20px;
+            padding: 9px 22px;
             font-size: 0.78rem;
             font-weight: 600;
             letter-spacing: 1.5px;
@@ -125,10 +128,10 @@
             transition: all 0.25s ease;
         }
 
-        .btn-proposal:hover {
+        .btn-proposal-nav:hover {
             background: var(--gold-primary);
-            color: var(--bg-deep) !important;
-            box-shadow: 0 0 15px var(--gold-glow);
+            color: #0a0c10 !important;
+            box-shadow: 0 0 16px var(--gold-glow);
         }
 
         /* Hero Section */
@@ -141,7 +144,7 @@
             align-items: center;
             text-align: center;
             padding: 140px 24px 80px;
-            background: radial-gradient(circle at center, rgba(8, 9, 11, 0.6) 0%, rgba(8, 9, 11, 0.92) 100%),
+            background: linear-gradient(180deg, rgba(10, 12, 16, 0.5) 0%, rgba(10, 12, 16, 0.85) 100%),
                         url('/images/hero-bg.jpg') center/cover no-repeat;
         }
 
@@ -154,17 +157,17 @@
             text-transform: uppercase;
             color: var(--gold-primary);
             border: 1px solid var(--gold-border);
-            padding: 6px 18px;
+            padding: 6px 20px;
             border-radius: 30px;
-            background: rgba(21, 24, 30, 0.8);
+            background: rgba(18, 22, 31, 0.85);
             margin-bottom: 28px;
         }
 
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            line-height: 1.15;
-            max-width: 950px;
+            font-size: 4.2rem;
+            line-height: 1.12;
+            max-width: 1000px;
             margin-bottom: 24px;
             font-weight: 600;
             color: #ffffff;
@@ -173,199 +176,610 @@
         .hero h1 span {
             color: var(--gold-light);
             font-style: italic;
-            display: block;
+            display: inline;
         }
 
         .hero p {
-            max-width: 720px;
-            font-size: 1.08rem;
+            max-width: 760px;
+            font-size: 1.05rem;
             color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 40px;
+            line-height: 1.8;
+            margin-bottom: 38px;
         }
 
         .hero-actions {
             display: flex;
-            gap: 20px;
+            gap: 18px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
-        .btn-gold-primary {
+        .btn-gold {
             background: linear-gradient(135deg, #d4af37, #aa7c11);
-            color: #08090b;
+            color: #0a0c10;
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            padding: 15px 36px;
+            padding: 15px 34px;
             text-decoration: none;
             border-radius: 3px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
         }
 
-        .btn-gold-primary:hover {
+        .btn-gold:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
         }
 
-        .btn-outline {
+        .btn-ghost {
             border: 1px solid var(--gold-border);
             color: var(--gold-light);
-            padding: 15px 36px;
-            font-size: 0.85rem;
+            padding: 15px 34px;
+            font-size: 0.82rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             text-decoration: none;
             border-radius: 3px;
             transition: all 0.2s ease;
+            display: inline-block;
         }
 
-        .btn-outline:hover {
+        .btn-ghost:hover {
             border-color: var(--gold-primary);
             background: rgba(212, 175, 55, 0.1);
         }
 
-        /* Section Layout */
-        .section {
-            padding: 100px 24px;
+        /* Section Layouts */
+        .section-wrapper {
+            padding: 110px 24px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
         .section-tag {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
+            font-size: 0.72rem;
+            letter-spacing: 3.5px;
             color: var(--gold-primary);
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: block;
+            text-align: center;
+            font-weight: 600;
         }
 
-        .section-title {
+        .section-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: #ffffff;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .section-heading span {
+            color: var(--gold-light);
+        }
+
+        .section-desc {
+            max-width: 720px;
+            margin: 0 auto 60px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Our Approach & Stats */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .approach-img-box img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--gold-border);
+            display: block;
+            object-fit: cover;
+            height: 480px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--gold-border);
+            padding: 24px 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-num {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.8rem;
             color: var(--gold-light);
-            line-height: 1.2;
-            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 8px;
         }
 
-        .grid-3 {
+        .stat-lbl {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .feature-bullets {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .feature-bullets li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
+            color: var(--text-sub);
+            font-size: 0.92rem;
+        }
+
+        .feature-bullets li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+        }
+
+        /* Live Stations 3-Card */
+        .grid-3col {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
+            gap: 28px;
         }
 
-        .card {
-            background: var(--bg-card);
+        .station-card {
+            background: var(--bg-surface);
             border: 1px solid var(--gold-border);
-            padding: 40px 32px;
-            border-radius: 6px;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
+        .station-card:hover {
+            transform: translateY(-5px);
             border-color: var(--gold-primary);
             box-shadow: 0 12px 30px var(--gold-glow);
         }
 
-        .card h3 {
+        .station-img {
+            height: 240px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .station-body {
+            padding: 28px 24px;
+        }
+
+        .station-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-bright);
+            border: 1px solid var(--gold-border);
+            font-size: 0.68rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 2px;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .station-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
-            color: var(--gold-primary);
-            margin-bottom: 16px;
+            color: #ffffff;
+            margin-bottom: 12px;
         }
 
-        .card p {
+        .station-body p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        /* Contact Section */
-        #contact {
-            background: var(--bg-dark);
-            border-top: 1px solid var(--gold-border);
+        .station-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-        .contact-box {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--bg-card);
+        .station-tags span {
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        /* Dietary Protocols Cards */
+        .dietary-card {
+            background: var(--bg-surface);
             border: 1px solid var(--gold-border);
-            padding: 50px 40px;
+            padding: 36px 28px;
             border-radius: 8px;
-            text-align: center;
+            transition: transform 0.2s ease;
         }
 
-        .contact-box h2 {
+        .dietary-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .dietary-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-bright);
+            margin: 0 auto 20px;
+            font-size: 1.1rem;
+        }
+
+        .dietary-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--gold-light);
+            font-size: 1.7rem;
+            color: #ffffff;
+            text-align: center;
             margin-bottom: 14px;
         }
 
-        .contact-box p {
+        .dietary-card p {
             color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .contact-details {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .contact-item {
+            font-size: 0.88rem;
             text-align: center;
+            margin-bottom: 24px;
+            line-height: 1.6;
         }
 
-        .contact-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .dietary-list {
+            list-style: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .dietary-list li {
+            font-size: 0.82rem;
+            color: var(--text-sub);
+            padding: 6px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .dietary-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
             color: var(--gold-primary);
-            display: block;
+            font-size: 0.75rem;
+        }
+
+        .dietary-badge-footer {
+            text-align: center;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            padding-top: 14px;
+            border-top: 1px dashed var(--gold-border);
+        }
+
+        /* Cinematic Plating */
+        .cinematic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .plating-badge-item {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .plating-badge-icon {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-bright);
+        }
+
+        .plating-badge-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--gold-light);
             margin-bottom: 6px;
         }
 
-        .contact-val {
+        .plating-badge-content p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--gold-border);
+            padding: 34px 28px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars {
+            color: var(--gold-bright);
+            margin-bottom: 18px;
+            font-size: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            color: var(--text-sub);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .client-avatar {
+            width: 42px;
+            height: 42px;
+            background: var(--gold-primary);
+            color: #0a0c10;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        .client-name {
+            font-weight: 600;
             color: #ffffff;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
+        }
+
+        .client-role {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Proposal Section & Form */
+        .proposal-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .proposal-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            line-height: 1.15;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .proposal-info h3 span {
+            color: var(--gold-light);
+        }
+
+        .contact-pill-list {
+            margin-top: 36px;
+        }
+
+        .contact-pill {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-surface);
+            border: 1px solid var(--gold-border);
+            padding: 16px 20px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+        }
+
+        .contact-pill-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-bright);
+            font-size: 0.95rem;
+        }
+
+        .contact-pill-label {
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            display: block;
+        }
+
+        .contact-pill-val {
+            color: #ffffff;
+            font-size: 0.95rem;
             text-decoration: none;
+            font-weight: 500;
+        }
+
+        .proposal-form-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--gold-border);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .proposal-form-box h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--gold-light);
+            margin-bottom: 6px;
+        }
+
+        .form-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 26px;
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 12px 14px;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .btn-submit-proposal {
+            width: 100%;
+            background: linear-gradient(135deg, #d4af37, #b88d22);
+            color: #0a0c10;
+            border: none;
+            padding: 16px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit-proposal:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.8rem;
+            padding: 40px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            background: #08090c;
             color: var(--text-muted);
-            background: var(--bg-deep);
+            font-size: 0.82rem;
         }
 
-        @media (max-width: 900px) {
-            .navbar { padding: 18px 20px; }
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--gold-light);
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 24px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        @media (max-width: 992px) {
+            .navbar { padding: 16px 24px; }
             .nav-links { display: none; }
-            .hero h1 { font-size: 2.6rem; }
+            .grid-2col, .cinematic-grid, .proposal-layout { grid-template-columns: 1fr; gap: 36px; }
+            .hero h1 { font-size: 2.8rem; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { margin: 0 10px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Sticky Navigation -->
     <nav class="navbar">
         <a href="/" class="brand-block">
             <span class="brand-name">India Palace and Catering</span>
@@ -377,7 +791,7 @@
             <li><a href="#dietary">Dietary Protocols</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="/menu.html" class="nav-btn-menu">Catering Menu</a></li>
-            <li><a href="#contact" class="btn-proposal">Request Proposal</a></li>
+            <li><a href="#proposal" class="btn-proposal-nav">Request Proposal</a></li>
         </ul>
     </nav>
 
@@ -392,98 +806,355 @@
             From intimate board dinners to 500-guest celebrations, India Palace and Catering brings three decades of culinary mastery to Silicon Valley's most discerning corporate environments. Every detail curated. Every flavor unforgettable.
         </p>
         <div class="hero-actions">
-            <a href="/menu.html" class="btn-gold-primary">View Catering Menu</a>
-            <a href="#contact" class="btn-outline">Request Proposal</a>
+            <a href="/menu.html" class="btn-gold">View Catering Menu</a>
+            <a href="#proposal" class="btn-ghost">Request Proposal</a>
         </div>
     </header>
 
-    <!-- Our Approach Section -->
-    <section id="approach" class="section">
-        <div class="section-header">
-            <span class="section-tag">Culinary Philosophy</span>
-            <h2 class="section-title">Crafted for Discerning Palates</h2>
-            <p style="color: var(--text-muted);">Authentic regional Indian traditions paired with modern executive event presentation.</p>
-        </div>
-        <div class="grid-3">
-            <div class="card">
-                <h3>Executive Scale</h3>
-                <p>Equipped with commercial culinary infrastructure to flawlessly execute high-capacity conferences, galas, and corporate retreats with meticulous timing.</p>
-            </div>
-            <div class="card">
-                <h3>Regional Authenticity</h3>
-                <p>Traditional slow-cooking methods, fresh clay tandoors, and hand-ground spice blends representing Northern, Southern, and coastal culinary heritage.</p>
-            </div>
-            <div class="card">
-                <h3>White-Glove Service</h3>
-                <p>Complete event setups including fine buffet chafers, professional banquet staff, and dedicated coordination to ensure a seamless client experience.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Stations Section -->
-    <section id="stations" class="section" style="border-top: 1px solid var(--gold-border);">
-        <div class="section-header">
-            <span class="section-tag">Interactive Dining</span>
-            <h2 class="section-title">Live Culinary Stations</h2>
-            <p style="color: var(--text-muted);">Engage your guests with fresh, made-to-order cooking stations.</p>
-        </div>
-        <div class="grid-3">
-            <div class="card">
-                <h3>Clay Tandoor & Chaat</h3>
-                <p>Live clay oven naans, tikkas, and interactive street-food carts featuring fresh Gol Gappa shots and crisp Aloo Tikki.</p>
-            </div>
-            <div class="card">
-                <h3>Artisanal Dosa Bar</h3>
-                <p>Crispy, golden South Indian dosas prepared live on large griddles with artisanal chutneys and piping sambar.</p>
-            </div>
-            <div class="card">
-                <h3>Live Jalebi & Dessert</h3>
-                <p>Piping hot jalebis paired with saffron-infused rabri, modern Rasmalai mousse, and house-made kulfi varieties.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dietary Protocols Section -->
-    <section id="dietary" class="section" style="border-top: 1px solid var(--gold-border);">
-        <div class="section-header">
-            <span class="section-tag">Corporate Compliance</span>
-            <h2 class="section-title">Dietary Protocols & Transparency</h2>
-            <p style="color: var(--text-muted);">Strict separation and clear labeling for all dietary preferences.</p>
-        </div>
-        <div class="grid-3">
-            <div class="card">
-                <h3>100% Halal & Vegetarian</h3>
-                <p>Strictly segregated food preparation lines with dedicated cookware for pure vegetarian and Halal meat selections.</p>
-            </div>
-            <div class="card">
-                <h3>Vegan & Gluten-Free</h3>
-                <p>Over 40% of our catalog offers naturally gluten-free and plant-based items clearly identified for your attendees.</p>
-            </div>
-            <div class="card">
-                <h3>Allergen Traceability</h3>
-                <p>Clear ingredient documentation for nut, dairy, and all major dietary restrictions required by modern corporate HR standards.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / Proposal Section -->
-    <section id="contact" class="section" style="max-width: 100%; padding: 100px 24px;">
-        <div class="contact-box">
-            <span class="section-tag">Start Planning</span>
-            <h2>Request an Event Proposal</h2>
-            <p>Connect directly with our executive catering director to tailor your menu and reserve dates.</p>
-            <div class="contact-details">
-                <div class="contact-item">
-                    <span class="contact-label">Direct Line</span>
-                    <a href="tel:5104213849" class="contact-val">+1 (510) 421-3849</a>
+    <!-- Our Approach -->
+    <section id="approach" class="section-wrapper">
+        <div class="container">
+            <div class="grid-2col">
+                <div class="approach-img-box">
+                    <img src="/images/hero-bg.jpg" alt="Corporate banquet dining setup" onerror="this.src='/images/event-setup.jpg';">
                 </div>
-                <div class="contact-item">
-                    <span class="contact-label">Email Inquiries</span>
-                    <a href="mailto:kulbir@indiapalacecatering.com" class="contact-val">kulbir@indiapalacecatering.com</a>
+                <div>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+                        India Palace Catering provides premium executive dining and corporate event catering for high-stakes business environments and global headquarters in Palo Alto and the San Francisco Bay Area. From a 50-person board meeting to a 500-guest product launch, every detail is choreographed with military precision.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-num">500+</div>
+                            <div class="stat-lbl">Max Guest Capacity</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">30+</div>
+                            <div class="stat-lbl">Years of Excellence</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">98%</div>
+                            <div class="stat-lbl">Client Satisfaction %</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">45 min</div>
+                            <div class="stat-lbl">Min Setup Time</div>
+                        </div>
+                    </div>
+
+                    <ul class="feature-bullets">
+                        <li><strong>Venue Assessment & Load-In Coordination</strong> — Our team conducts advance site visits to map power access, staging areas, and guest flow patterns.</li>
+                        <li><strong>Staffing to Scale</strong> — Professionally uniformed service staff at a 1:15 guest ratio, plus dedicated event captains for seamless coordination.</li>
+                        <li><strong>Full-Service Equipment</strong> — Chafing stations, linen-dressed buffets, bone china, brass serviceware — all provided. Zero rentals required.</li>
+                        <li><strong>Post-Event Breakdown</strong> — Complete teardown, cleaning, and waste removal within 60 minutes of service conclusion.</li>
+                    </ul>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-label">Service Area</span>
-                    <span class="contact-val">San Francisco Bay Area & Silicon Valley</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stations -->
+    <section id="stations" class="section-wrapper">
+        <div class="container">
+            <span class="section-tag">Performance Dining</span>
+            <h2 class="section-heading">What makes our <span>Bay Area catering unique?</span></h2>
+            <p class="section-desc">
+                Transform your corporate event into an immersive culinary theater. Our live stations don't just serve food — they create spectacle, conversation, and unforgettable brand moments.
+            </p>
+
+            <div class="grid-3col">
+                <!-- Station 1 -->
+                <div class="station-card">
+                    <img src="/images/tandoor-station.jpg" alt="Master Tandoor Station" class="station-img" onerror="this.src='/images/hero-bg.jpg';">
+                    <div class="station-body">
+                        <span class="station-badge">Signature</span>
+                        <h3 class="station-title">Live Tandoor Station</h3>
+                        <p>Watch our master tandoor chef craft butter naan, garlic roti, and smoky kebabs in a traditional clay oven — right on your venue floor. The theater of open-flame cooking captivates every guest.</p>
+                        <div class="station-tags">
+                            <span>Clay Oven On-Site</span>
+                            <span>Naan to Order</span>
+                            <span>Seekh Kebabs</span>
+                            <span>Paneer Tikka</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Station 2 -->
+                <div class="station-card">
+                    <img src="/images/chaat-bar.jpg" alt="Artisan Chaat Bar" class="station-img" onerror="this.src='/images/hero-bg.jpg';">
+                    <div class="station-body">
+                        <span class="station-badge">Interactive</span>
+                        <h3 class="station-title">Artisan Chaat Bar</h3>
+                        <p>An interactive street-food experience elevated to executive standards. Guests build their own pani puri, dahi puri, and bhel with curated chutneys and toppings — a conversation-starting culinary journey.</p>
+                        <div class="station-tags">
+                            <span>Pani Puri Live</span>
+                            <span>Papdi Chaat</span>
+                            <span>Bhel Puri</span>
+                            <span>6 House Chutneys</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Station 3 -->
+                <div class="station-card">
+                    <img src="/images/biryani-ceremony.jpg" alt="Royal Biryani Ceremony" class="station-img" onerror="this.src='/images/hero-bg.jpg';">
+                    <div class="station-body">
+                        <span class="station-badge">Ceremonial</span>
+                        <h3 class="station-title">Royal Biryani Ceremony</h3>
+                        <p>A showstopper centerpiece — our Dum Biryani arrives sealed in dough, cracked open tableside in a cloud of saffron-infused steam. Served with raita, mirchi ka salan, and house-pickled accompaniments.</p>
+                        <div class="station-tags">
+                            <span>Dum Pukht Style</span>
+                            <span>Saffron Basmati</span>
+                            <span>Tableside Service</span>
+                            <span>Veg & Non-Veg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dietary Protocols -->
+    <section id="dietary" class="section-wrapper">
+        <div class="container">
+            <span class="section-tag">Dietary Intelligence</span>
+            <h2 class="section-heading">Sophisticated Protocols for Upscale Indian Catering <span>Across Every Dietary Need</span></h2>
+            <p class="section-desc">
+                In Silicon Valley's diverse corporate landscape, dietary inclusivity isn't optional — it's essential. Our kitchen maintains rigorous separation protocols and certified preparation standards.
+            </p>
+
+            <div class="grid-3col">
+                <div class="dietary-card">
+                    <div class="dietary-icon">&#127793;</div>
+                    <h3 class="dietary-title">Plant-Forward Vegan</h3>
+                    <p>A complete plant-based menu that celebrates Indian cuisine's natural affinity for vegan cooking — no compromises, no afterthoughts.</p>
+                    <ul class="dietary-list">
+                        <li>Dedicated vegan prep station & cookware</li>
+                        <li>Cashew-cream based curries & kormas</li>
+                        <li>House-made paneer alternatives</li>
+                        <li>Coconut milk dessert offerings</li>
+                        <li>Full ingredient disclosure on labels</li>
+                    </ul>
+                    <div class="dietary-badge-footer">&#10022; Vegan Society Compliant</div>
+                </div>
+
+                <div class="dietary-card">
+                    <div class="dietary-icon">&#10004;</div>
+                    <h3 class="dietary-title">Halal Available Upon Request</h3>
+                    <p>All meat and poultry sourced exclusively from certified halal suppliers with full traceability from farm to service.</p>
+                    <ul class="dietary-list">
+                        <li>ISWA-certified halal meat suppliers</li>
+                        <li>Separate storage & preparation zones</li>
+                        <li>Full supply chain documentation</li>
+                        <li>No cross-contamination protocols</li>
+                        <li>Certification available upon request</li>
+                    </ul>
+                    <div class="dietary-badge-footer">&#10022; ISWA Halal Certified</div>
+                </div>
+
+                <div class="dietary-card">
+                    <div class="dietary-icon">&#9889;</div>
+                    <h3 class="dietary-title">Gluten-Free Assured</h3>
+                    <p>Comprehensive gluten-free options crafted with naturally GF Indian staples — rice, lentils, chickpea flour — with rigorous cross-contamination safeguards.</p>
+                    <ul class="dietary-list">
+                        <li>Dedicated GF preparation surfaces</li>
+                        <li>Chickpea & rice flour naan alternatives</li>
+                        <li>All sauces verified GF-safe</li>
+                        <li>Clear buffet labeling system</li>
+                        <li>Staff trained in allergen awareness</li>
+                    </ul>
+                    <div class="dietary-badge-footer">&#10022; Celiac Foundation Guidelines</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinematic Plating -->
+    <section class="section-wrapper">
+        <div class="container">
+            <span class="section-tag">Cinematic Plating</span>
+            <h2 class="section-heading">Where Culinary Art Meets <span>Corporate Sophistication</span></h2>
+            <p class="section-desc">
+                Every plate leaving our kitchen is a canvas. We bring Michelin-level plating aesthetics to corporate catering — because the first bite is always with the eyes.
+            </p>
+
+            <div class="cinematic-grid">
+                <div>
+                    <div class="plating-badge-item">
+                        <div class="plating-badge-icon">&#9733;</div>
+                        <div class="plating-badge-content">
+                            <h4>Michelin-Inspired Presentation</h4>
+                            <p>Microgreens, edible flowers, and precision sauce work elevate every dish beyond traditional catering.</p>
+                        </div>
+                    </div>
+
+                    <div class="plating-badge-item">
+                        <div class="plating-badge-icon">&#9829;</div>
+                        <div class="plating-badge-content">
+                            <h4>Bespoke Menu Curation</h4>
+                            <p>Work directly with our Executive Chef to design a menu that reflects your company's brand, culture, and guest demographics.</p>
+                        </div>
+                    </div>
+
+                    <div class="plating-badge-item">
+                        <div class="plating-badge-icon">&#9670;</div>
+                        <div class="plating-badge-content">
+                            <h4>Allergen Command Center</h4>
+                            <p>A dedicated allergen officer on-site manages guest dietary cards and coordinates with service staff in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="/images/plating-dish.jpg" alt="Michelin style Indian dish plating" style="width: 100%; border-radius: 8px; border: 1px solid var(--gold-border);" onerror="this.src='/images/hero-bg.jpg';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section-wrapper">
+        <div class="container">
+            <span class="section-tag">Client Voices</span>
+            <h2 class="section-heading">What Silicon Valley's <span>Decision-Makers Say</span></h2>
+            <p class="section-desc">Trusted by premier tech firms, executives, and event coordinators across the San Francisco Bay Area.</p>
+
+            <div class="grid-3col">
+                <div class="testimonial-card">
+                    <div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-text">"Kulbirji and Sunilji (Head Chef) did an amazing job catering. They worked with me very closely to finalize the menu, patiently changed the items and added items. They took care of serving the food beautifully, ensuring it was hot and served timely. They did live catering and the execution was flawless. I cannot rave enough. Wonderful people and wonderful food. It was a fun experience planning the party with them!"</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">CJ</div>
+                        <div>
+                            <div class="client-name">Charu Jain</div>
+                            <div class="client-role">Client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-text">"One of the best caterers in the bay area! Kulbir delivered one of the best services and menu for our reception and everyone still raves about the food to this day. Highly recommend them for catering services!"</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">SS</div>
+                        <div>
+                            <div class="client-name">Sahibdeep Singh</div>
+                            <div class="client-role">Client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-text">"Kulbir is a wonderful person, he put us in no pressure to finalize anything and focused on understanding and supporting us to make sure our event went well. He even visited the venue beforehand to ensure that the setup on the day of the event went smoothly. The event went really well, all our guests were amazed at the quality and taste of the food- even after the event and everyone asked us for his contact. We highly recommend Kulbir."</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">AS</div>
+                        <div>
+                            <div class="client-name">Aneri Shah</div>
+                            <div class="client-role">Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposal Form Section -->
+    <section id="proposal" class="section-wrapper" style="border-bottom: none;">
+        <div class="container">
+            <div class="proposal-layout">
+                <div class="proposal-info">
+                    <span class="section-tag" style="text-align: left;">Begin The Conversation</span>
+                    <h3>Elevate Your Next Corporate Event with <span>the Bay Area's Finest Indian Catering</span></h3>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Share your event details and our executive catering team will craft a custom proposal within 24 hours. No templates — every event is a bespoke creation.
+                    </p>
+
+                    <div class="contact-pill-list">
+                        <div class="contact-pill">
+                            <div class="contact-pill-icon">&#128222;</div>
+                            <div>
+                                <span class="contact-pill-label">Direct Line</span>
+                                <a href="tel:5108148778" class="contact-pill-val">(510) 814-8778</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-pill">
+                            <div class="contact-pill-icon">&#9993;</div>
+                            <div>
+                                <span class="contact-pill-label">Email</span>
+                                <a href="mailto:Kulbir@indiapalacecatering.com" class="contact-pill-val">Kulbir@indiapalacecatering.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-pill">
+                            <div class="contact-pill-icon">&#128205;</div>
+                            <div>
+                                <span class="contact-pill-label">Service Area</span>
+                                <span class="contact-pill-val">SF Bay Area & Silicon Valley</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proposal-form-box">
+                    <h4>Request a Custom Proposal</h4>
+                    <p class="form-subtitle">We respond within 24 hours.</p>
+
+                    <form action="mailto:Kulbir@indiapalacecatering.com" method="POST" enctype="text/plain">
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" placeholder="Jane Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" placeholder="Acme Corp">
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="jane@acme.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" placeholder="(415) 555-0123" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Guest Count</label>
+                                <select>
+                                    <option value="" disabled selected>Select range</option>
+                                    <option value="25-50">25 - 50 guests</option>
+                                    <option value="50-100">50 - 100 guests</option>
+                                    <option value="100-250">100 - 250 guests</option>
+                                    <option value="250-500">250 - 500 guests</option>
+                                    <option value="500+">500+ guests</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Date</label>
+                                <input type="date">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Event Details</label>
+                            <textarea rows="4" placeholder="Tell us about your event — type, venue, dietary needs, special requests..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit-proposal">Send Proposal Request &rsaquo;</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -491,7 +1162,18 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 India Palace and Catering. All rights reserved.</p>
+        <div>
+            <div class="footer-brand">India Palace and Catering</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Executive Catering &bull; Since 1992</div>
+        </div>
+        <div class="footer-links">
+            <a href="/menu.html">Full Menu</a>
+            <a href="#approach">Our Approach</a>
+            <a href="#proposal">Contact</a>
+        </div>
+        <div style="font-size: 0.75rem;">
+            &copy; 2026 India Palace and Catering. All rights reserved. | Alameda, CA
+        </div>
     </footer>
 
 </body>
