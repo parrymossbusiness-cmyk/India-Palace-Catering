@@ -6,24 +6,29 @@
     <title>Catering Menu | India Palace Catering</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #0c0d10;
-            --bg-card: #14171d;
-            --bg-card-hover: #1b1f27;
+            --bg-deep: #0a0c10;
+            --bg-card: #131720;
+            --bg-card-hover: #1a202c;
             --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --gold-border: rgba(212, 175, 55, 0.25);
+            --gold-bright: #e5c158;
+            --gold-light: #f5e7b8;
+            --gold-border: rgba(212, 175, 55, 0.22);
             --gold-glow: rgba(212, 175, 55, 0.15);
-            --text-main: #f0f0f0;
-            --text-muted: #a3a8b5;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -35,27 +40,28 @@
         }
 
         .header-nav {
-            padding: 20px 40px;
+            padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--gold-border);
-            background: rgba(12, 13, 16, 0.95);
+            background: rgba(10, 12, 16, 0.94);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
 
         .back-link {
             color: var(--gold-light);
             text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            font-weight: 500;
             transition: color 0.2s ease;
         }
 
@@ -64,20 +70,36 @@
         }
 
         .hero {
+            position: relative;
             text-align: center;
-            padding: 70px 20px 40px;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 90px 20px 60px;
+            background: linear-gradient(180deg, rgba(10, 12, 16, 0.75) 0%, rgba(10, 12, 16, 0.95) 100%),
+                        url('/images/hero-feast.png') center/cover no-repeat;
+            border-bottom: 1px solid var(--gold-border);
+        }
+
+        .badge-sub {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 12px;
         }
 
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            font-weight: 700;
-            color: var(--gold-primary);
+            font-size: 3.6rem;
+            font-weight: 600;
+            color: #ffffff;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+            font-style: italic;
         }
 
         .hero p {
@@ -92,21 +114,23 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            padding: 15px 20px 40px;
+            padding: 16px 20px;
             position: sticky;
-            top: 72px;
-            background: var(--bg-deep);
+            top: 68px;
+            background: rgba(10, 12, 16, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 90;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.12);
         }
 
         .category-nav a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 8px 16px;
+            padding: 7px 16px;
             border-radius: 20px;
             border: 1px solid var(--gold-border);
             background: var(--bg-card);
@@ -114,7 +138,7 @@
         }
 
         .category-nav a:hover {
-            color: #0c0d10;
+            color: #0a0c10;
             background: var(--gold-primary);
             border-color: var(--gold-primary);
         }
@@ -122,12 +146,12 @@
         .menu-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px 80px;
+            padding: 40px 24px 80px;
         }
 
         .menu-section {
             margin-bottom: 60px;
-            scroll-margin-top: 150px;
+            scroll-margin-top: 140px;
         }
 
         .section-title {
@@ -139,15 +163,16 @@
             margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
         }
 
         .section-title span {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-family: 'Montserrat', sans-serif;
             color: var(--gold-primary);
-            font-weight: 400;
-            letter-spacing: 1px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .items-grid {
@@ -173,14 +198,14 @@
         }
 
         .item-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
             color: var(--text-main);
         }
 
         .tag {
             display: inline-block;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             padding: 2px 6px;
@@ -201,6 +226,46 @@
             border: 1px solid var(--gold-border);
         }
 
+        /* Showcase Artwork Divider */
+        .showcase-banner {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--gold-border);
+            margin: 80px 0;
+            height: 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(180deg, rgba(10, 12, 16, 0.55) 0%, rgba(10, 12, 16, 0.85) 100%),
+                        url('/images/cinematic-plating.png') center/cover no-repeat;
+        }
+
+        .showcase-content {
+            max-width: 700px;
+        }
+
+        .showcase-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .showcase-content h3 span {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .showcase-content p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Packages Grid */
         .packages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -209,7 +274,7 @@
         }
 
         .package-card {
-            background: linear-gradient(180deg, #181c24 0%, #12141a 100%);
+            background: linear-gradient(180deg, #161b24 0%, #11141c 100%);
             border: 1px solid var(--gold-border);
             border-radius: 8px;
             padding: 36px 28px;
@@ -242,7 +307,7 @@
         .package-features li {
             padding: 8px 0;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
 
@@ -251,7 +316,7 @@
         }
 
         .package-note {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--gold-light);
             margin-top: 15px;
             font-style: italic;
@@ -261,7 +326,7 @@
             background: var(--bg-card);
             border: 1px dashed var(--gold-border);
             border-radius: 6px;
-            padding: 20px;
+            padding: 22px;
             text-align: center;
             margin-top: 30px;
             color: var(--text-muted);
@@ -269,32 +334,40 @@
         }
 
         .cta-section {
+            position: relative;
             text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid var(--gold-border);
+            padding: 80px 24px;
+            border-radius: 8px;
+            border: 1px solid var(--gold-border);
+            margin-top: 60px;
+            background: linear-gradient(180deg, rgba(10, 12, 16, 0.75) 0%, rgba(10, 12, 16, 0.92) 100%),
+                        url('/images/hero-feast.png') center/cover no-repeat;
         }
 
         .cta-btn {
             background: linear-gradient(135deg, #d4af37, #aa7c11);
-            color: #0c0d10;
+            color: #0a0c10;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            padding: 14px 36px;
-            border-radius: 4px;
+            padding: 15px 36px;
+            border-radius: 3px;
             text-decoration: none;
             display: inline-block;
-            transition: opacity 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 15px;
         }
 
         .cta-btn:hover {
-            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .header-nav { padding: 15px 20px; }
+            .hero h1 { font-size: 2.5rem; }
+            .header-nav { padding: 14px 20px; }
             .category-nav { display: none; }
+            .showcase-banner { height: auto; }
         }
     </style>
 </head>
@@ -302,12 +375,13 @@
 
     <header class="header-nav">
         <a href="/" class="back-link">&larr; Back to Home</a>
-        <a href="/#contact" class="cta-btn" style="padding: 8px 18px; font-size: 0.85rem;">Request Quote</a>
+        <a href="/#proposal" class="cta-btn" style="padding: 8px 18px; font-size: 0.78rem; margin: 0;">Request Proposal</a>
     </header>
 
     <div class="hero">
-        <h1>Catering Menu</h1>
-        <p>From traditional royal classics to modern culinary innovations, carefully curated for weddings, corporate galas, and celebratory milestones[cite: 1].</p>
+        <span class="badge-sub">&#9733; Chef-Curated Collections</span>
+        <h1>Executive <span>Catering Menu</span></h1>
+        <p>From traditional royal classics to modern culinary theater, tailored for corporate galas, executive retreats, and celebratory milestones[cite: 1].</p>
     </div>
 
     <nav class="category-nav">
@@ -323,7 +397,7 @@
 
     <main class="menu-container">
 
-        <!-- Page 3: Starters: Vegetarian -->
+        <!-- Vegetarian Starters -->
         <section id="veg-starters" class="menu-section">
             <h2 class="section-title">Starters <span>Vegetarian</span></h2>
             <div class="items-grid">
@@ -361,7 +435,7 @@
             </div>
         </section>
 
-        <!-- Page 4: Starters: Non-Vegetarian -->
+        <!-- Non-Vegetarian Starters -->
         <section id="nonveg-starters" class="menu-section">
             <h2 class="section-title">Starters <span>Non-Vegetarian & Seafood</span></h2>
             <div class="items-grid">
@@ -391,7 +465,7 @@
             </div>
         </section>
 
-        <!-- Page 5: Entrees: Vegetarian -->
+        <!-- Vegetarian Entrees -->
         <section id="veg-entrees" class="menu-section">
             <h2 class="section-title">Entrees <span>Vegetarian</span></h2>
             <div class="items-grid">
@@ -419,7 +493,7 @@
             </div>
         </section>
 
-        <!-- Page 6: Entrees: Non-Vegetarian -->
+        <!-- Non-Vegetarian Entrees -->
         <section id="nonveg-entrees" class="menu-section">
             <h2 class="section-title">Entrees <span>Non-Vegetarian & Meat</span></h2>
             <div class="items-grid">
@@ -445,11 +519,19 @@
             </div>
         </section>
 
-        <!-- Page 7: Biryani, Rice & Breads -->
+        <!-- Showcase Artwork Divider -->
+        <div class="showcase-banner">
+            <div class="showcase-content">
+                <h3>Every Flavor <span>Unforgettable</span></h3>
+                <p>Authentic regional slow-cooking combined with modern executive banquet presentation for an exceptional guest dining experience.</p>
+            </div>
+        </div>
+
+        <!-- Biryani, Rice & Breads -->
         <section id="biryani-breads" class="menu-section">
             <h2 class="section-title">Biryani, Rice & Breads</h2>
-            <div style="margin-bottom: 24px;">
-                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; font-weight: 500;">Rice & Biryani Specialties</h3>
+            <div style="margin-bottom: 28px;">
+                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 14px; font-weight: 500;">Rice & Biryani Specialties</h3>
                 <div class="items-grid">
                     <div class="item-card"><div class="item-title">Jeera Rice</div></div>
                     <div class="item-card"><div class="item-title">Plain Steamed Basmati Rice</div></div>
@@ -466,7 +548,7 @@
             </div>
 
             <div>
-                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; font-weight: 500;">Fresh Clay Oven Breads</h3>
+                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 14px; font-weight: 500;">Fresh Clay Oven Breads</h3>
                 <div class="items-grid">
                     <div class="item-card"><div class="item-title">Naan (Butter, Garlic, Plain)</div></div>
                     <div class="item-card"><div class="item-title">Tandoori Roti</div></div>
@@ -480,11 +562,11 @@
             </div>
         </section>
 
-        <!-- Page 8: Desserts & Live Stations -->
+        <!-- Desserts & Live Stations -->
         <section id="desserts-stations" class="menu-section">
             <h2 class="section-title">Desserts & Live Stations</h2>
-            <div style="margin-bottom: 24px;">
-                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; font-weight: 500;">Desserts</h3>
+            <div style="margin-bottom: 28px;">
+                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 14px; font-weight: 500;">Desserts</h3>
                 <div class="items-grid">
                     <div class="item-card"><div class="item-title">Rasmalai Chocolate Mousse</div></div>
                     <div class="item-card"><div class="item-title">Kesar Rasmalai</div></div>
@@ -503,7 +585,7 @@
             </div>
 
             <div>
-                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; font-weight: 500;">Interactive Live Stations</h3>
+                <h3 style="color: var(--gold-light); font-size: 1.2rem; margin-bottom: 14px; font-weight: 500;">Interactive Live Stations</h3>
                 <div class="items-grid">
                     <div class="item-card"><div class="item-title">Tawa Mix Seasonal Vegetables <span class="tag tag-vegan">Vegan</span></div></div>
                     <div class="item-card"><div class="item-title">Chaat Station (Aloo Tikki & Samosa) <span class="tag tag-vegan">Vegan</span></div></div>
@@ -515,7 +597,7 @@
             </div>
         </section>
 
-        <!-- Page 9: Breakfast -->
+        <!-- Breakfast -->
         <section id="breakfast" class="menu-section">
             <h2 class="section-title">Breakfast Selections</h2>
             <div class="items-grid">
@@ -538,7 +620,7 @@
             </div>
         </section>
 
-        <!-- Page 10: Packages (No Prices) -->
+        <!-- Packages (No Prices) -->
         <section id="packages" class="menu-section">
             <h2 class="section-title">Curated Catering Packages</h2>
             <div class="packages-grid">
@@ -562,7 +644,7 @@
                         <li><strong>Desserts:</strong> 2 Selections</li>
                         <li><strong>Inclusions:</strong> Excludes premium lamb and seafood</li>
                     </ul>
-                    <p class="package-note">Our signature balanced offering for weddings and festive banquets[cite: 1].</p>
+                    <p class="package-note">Our signature balanced offering for corporate galas and banquets[cite: 1].</p>
                 </div>
 
                 <div class="package-card">
@@ -583,10 +665,11 @@
             </div>
         </section>
 
+        <!-- Final CTA Banner with Background Art -->
         <section class="cta-section">
-            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold-primary); margin-bottom: 12px;">Ready to Plan Your Event?</h2>
-            <p style="color: var(--text-muted); margin-bottom: 25px;">Contact our culinary team to tailor your package and reserve your date[cite: 1].</p>
-            <a href="/#contact" class="cta-btn">Inquire Now</a>
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: #ffffff; margin-bottom: 10px;">Ready to Plan Your Event?</h2>
+            <p style="color: var(--text-sub); max-width: 600px; margin: 0 auto 20px;">Contact our executive catering team to tailor your package and reserve your date[cite: 1].</p>
+            <a href="/#proposal" class="cta-btn">Request Custom Proposal</a>
         </section>
 
     </main>
