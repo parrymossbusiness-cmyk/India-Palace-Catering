@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India Palace and Catering | Executive & Corporate Catering Bay Area</title>
+    <title>India Palace Catering | Executive & Corporate Catering Bay Area</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
             --gold-bright: #e5c158;
             --gold-light: #f5e7b8;
             --gold-accent: #b58d24;
-            --gold-border: rgba(212, 175, 55, 0.22);
-            --gold-glow: rgba(212, 175, 55, 0.12);
+            --gold-border: rgba(212, 175, 55, 0.35);
+            --gold-glow: rgba(212, 175, 55, 0.15);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --text-sub: #d1d5db;
@@ -37,9 +37,10 @@
         body {
             background-color: var(--bg-base);
             color: var(--text-main);
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
 
@@ -50,51 +51,69 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 18px 48px;
+            padding: 16px 36px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 12, 16, 0.92);
-            backdrop-filter: blur(12px);
+            background: rgba(10, 12, 16, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--gold-border);
+            gap: 24px;
         }
 
         .brand-block {
             display: flex;
             flex-direction: column;
             text-decoration: none;
+            flex-shrink: 0;
+            margin-right: 20px;
         }
 
         .brand-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.55rem;
             font-weight: 700;
             letter-spacing: 2px;
             color: var(--gold-light);
             text-transform: uppercase;
+            white-space: nowrap;
+            line-height: 1.1;
         }
 
         .brand-tagline {
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             letter-spacing: 3px;
             color: var(--gold-primary);
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-top: 2px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 22px;
             list-style: none;
+            flex-shrink: 0;
+            flex-wrap: nowrap;
+        }
+
+        .nav-links li {
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
         }
 
         .nav-links a {
             color: var(--text-sub);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             letter-spacing: 0.5px;
             font-weight: 500;
+            white-space: nowrap;
             transition: color 0.2s ease;
         }
 
@@ -102,34 +121,51 @@
             color: var(--gold-light);
         }
 
+        /* Safari-Compliant Button Borders */
         .nav-btn-menu {
             color: var(--gold-primary) !important;
-            border: 1px solid var(--gold-border);
-            padding: 7px 16px;
-            border-radius: 2px;
+            border: 1px solid var(--gold-primary) !important;
+            padding: 9px 16px !important;
+            border-radius: 3px;
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            line-height: 1 !important;
             transition: all 0.2s ease;
+            background: transparent;
         }
 
         .nav-btn-menu:hover {
-            background: rgba(212, 175, 55, 0.15);
-            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.15) !important;
+            color: var(--gold-light) !important;
         }
 
         .btn-proposal-nav {
-            border: 1px solid var(--gold-primary);
+            border: 1px solid var(--gold-primary) !important;
             color: var(--gold-light) !important;
-            padding: 9px 22px;
-            font-size: 0.78rem;
-            font-weight: 600;
+            padding: 9px 20px !important;
+            font-size: 0.78rem !important;
+            font-weight: 600 !important;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             text-decoration: none;
-            border-radius: 2px;
+            border-radius: 3px;
+            white-space: nowrap;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            line-height: 1 !important;
             transition: all 0.25s ease;
+            background: transparent;
         }
 
         .btn-proposal-nav:hover {
-            background: var(--gold-primary);
+            background: var(--gold-primary) !important;
             color: #0a0c10 !important;
             box-shadow: 0 0 16px var(--gold-glow);
         }
@@ -164,7 +200,7 @@
         }
 
         .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 4.2rem;
             line-height: 1.12;
             max-width: 1000px;
@@ -254,7 +290,7 @@
         }
 
         .section-heading {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 3rem;
             color: #ffffff;
             text-align: center;
@@ -309,7 +345,7 @@
         }
 
         .stat-num {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 2.8rem;
             color: var(--gold-light);
             font-weight: 600;
@@ -392,7 +428,7 @@
         }
 
         .station-title {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.8rem;
             color: #ffffff;
             margin-bottom: 12px;
@@ -448,7 +484,7 @@
         }
 
         .dietary-title {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.7rem;
             color: #ffffff;
             text-align: center;
@@ -524,7 +560,7 @@
         }
 
         .plating-badge-content h4 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.4rem;
             color: var(--gold-light);
             margin-bottom: 6px;
@@ -601,7 +637,7 @@
         }
 
         .proposal-info h3 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 3rem;
             line-height: 1.15;
             color: #ffffff;
@@ -663,7 +699,7 @@
         }
 
         .proposal-form-box h4 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 2rem;
             color: var(--gold-light);
             margin-bottom: 6px;
@@ -751,7 +787,7 @@
         }
 
         .footer-brand {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.3rem;
             color: var(--gold-light);
         }
@@ -767,8 +803,14 @@
             color: var(--gold-primary);
         }
 
+        @media (max-width: 1100px) {
+            .navbar { padding: 16px 20px; gap: 14px; }
+            .nav-links { gap: 14px; }
+            .brand-name { font-size: 1.35rem; }
+        }
+
         @media (max-width: 992px) {
-            .navbar { padding: 16px 24px; }
+            .navbar { padding: 16px 20px; }
             .nav-links { display: none; }
             .grid-2col, .cinematic-grid, .proposal-layout { grid-template-columns: 1fr; gap: 36px; }
             .hero h1 { font-size: 2.8rem; }
@@ -782,7 +824,7 @@
     <!-- Sticky Navigation -->
     <nav class="navbar">
         <a href="/" class="brand-block">
-            <span class="brand-name">India Palace and Catering</span>
+            <span class="brand-name">India Palace Catering</span>
             <span class="brand-tagline">Executive Catering</span>
         </a>
         <ul class="nav-links">
@@ -803,7 +845,7 @@
             <span>Silicon Valley & The Bay Area</span>
         </h1>
         <p>
-            From intimate board dinners to 500-guest celebrations, India Palace and Catering brings three decades of culinary mastery to Silicon Valley's most discerning corporate environments. Every detail curated. Every flavor unforgettable.
+            From intimate board dinners to 500-guest celebrations, India Palace Catering brings three decades of culinary mastery to Silicon Valley's most discerning corporate environments. Every detail curated. Every flavor unforgettable.
         </p>
         <div class="hero-actions">
             <a href="/menu.html" class="btn-gold">View Catering Menu</a>
@@ -1160,10 +1202,10 @@
         </div>
     </section>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div>
-            <div class="footer-brand">India Palace and Catering</div>
+            <div class="footer-brand">India Palace Catering</div>
             <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Executive Catering &bull; Since 1992</div>
         </div>
         <div class="footer-links">
@@ -1172,7 +1214,7 @@
             <a href="#proposal">Contact</a>
         </div>
         <div style="font-size: 0.75rem;">
-            &copy; 2026 India Palace and Catering. All rights reserved. | Alameda, CA
+            &copy; 2026 India Palace Catering. All rights reserved. | Alameda, CA
         </div>
     </footer>
 
